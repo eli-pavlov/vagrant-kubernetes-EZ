@@ -3,9 +3,9 @@ require 'yaml'
 
 Vagrant.configure(2) do |config|
   # Source key variables from config file
-  NodeCount = YAML.load_file('initial_setup.yaml')['NodeCount']
-  api_server_address = YAML.load_file('initial_setup.yaml')['master']['master_ip']
-  pod_network_cidr = YAML.load_file('initial_setup.yaml')['master']['pod_network_cidr']
+  NodeCount = YAML.load_file('config.yaml')['NodeCount']
+  api_server_address = YAML.load_file('config.yaml')['master']['master_ip']
+  pod_network_cidr = YAML.load_file('config.yaml')['master']['pod_network_cidr']
 
   
   ### Due to Vagrant limitations we will have to generate the kubeadm init command ###
@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
 
   
   # Load rest of config_data from config file
-  config_data = YAML.load_file('initial_setup.yaml')
+  config_data = YAML.load_file('config.yaml')
 
   # The amount of time given to machine to complete reboot
   config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
@@ -40,7 +40,7 @@ Vagrant.configure(2) do |config|
 
   # Kubernetes Master
   config.vm.define "master" do |master|
-    master.vm.box = "bento/ubuntu-22.04"
+    master.vm.box = "ubuntu/jammy64"
     master.vm.hostname = "master"
     master.vm.network "private_network", ip: config_data['master']['master_ip']
     master.vm.provider "virtualbox" do |v| 
@@ -59,7 +59,7 @@ Vagrant.configure(2) do |config|
   # Kubernetes nodes
   (1..NodeCount).each do |i|
     config.vm.define "worker#{i}" do |worker|
-      worker.vm.box = "bento/ubuntu-22.04"
+      worker.vm.box = "ubuntu/jammy64"
       worker.vm.hostname = "worker#{i}"
       worker.vm.network "private_network", ip: "#{config_data['worker']['ip_prefix']}#{i + config_data['worker']['start_index']}"
       worker.vm.provider "virtualbox" do |v|

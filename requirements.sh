@@ -11,7 +11,7 @@ echo ""
 # Load variables from the YAML file
 echo ""
 echo "[TASK 1] Load variables from the YAML file"
-config_data=$(cat initial_setup.yaml | yq r -)
+config_data=$(cat config.yaml | yq r -)
 echo "...done..."
 
 # Extract NodeCount
