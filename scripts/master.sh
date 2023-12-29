@@ -46,3 +46,5 @@ sudo rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 export KUBECONFIG=/home/vagrant/.kube/config
 su - vagrant -c "cilium install --version 1.14.5"
 echo "...done..."
+echo ""
+echo ""
