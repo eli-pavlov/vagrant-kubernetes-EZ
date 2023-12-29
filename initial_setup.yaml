@@ -1,0 +1,28 @@
+# Number of worker nodes in addition to master node
+NodeCount: 1
+
+master:
+  # Set amount of RAM memory,CPU cores and IP address for master node
+  memory: 8096
+  cpus: 4
+  master_ip: "192.168.10.100"
+
+  # set the internal kubernetes pod network CIDR
+  pod_network_cidr: "10.244.0.0/16"
+
+  # enable nested virtualization on the master machine
+  master_virt: True
+
+worker:
+  # Set amount of RAM memory and CPU cores for each worker node
+  memory: 6096
+  cpus: 2
+
+  # enable nested virtualization on worker node machines
+  worker_virt: True
+
+  # Define ip range for worker nodes
+  ip_prefix: "192.168.10."         #
+  start_index: 2                   #
+  count: <%= @NodeCount %>         #
+ # # # # # # # # # # # # # # # # # #
