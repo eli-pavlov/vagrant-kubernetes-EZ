@@ -2,10 +2,34 @@
 require 'yaml'
 
 Vagrant.configure(2) do |config|
-  # Use NodeCount directly
+  # Source key variables from config file
   NodeCount = YAML.load_file('initial_setup.yaml')['NodeCount']
+  api_server_address = YAML.load_file('initial_setup.yaml')['master']['master_ip']
+  pod_network_cidr = YAML.load_file('initial_setup.yaml')['master']['pod_network_cidr']
 
-  # Load config_data directly without using []
+  
+  ### Due to Vagrant limitations we will have to generate the kubeadm init command ###
+  ### separately in advance, and provide it as a script to be executed on the      ###
+  ### master node afer VM creation. This is necessary to allow IP addresses to be  ###
+  ### configured dynamically in the config.yaml file                               ###
+  ####################################################################################
+
+  # Define a path to store dynamically generated kubeadm init script locally
+  local_script_path = "./kube_init_script.sh"
+ 
+  # Generate the kubeadm init command with configured IP addresses
+  File.open(local_script_path, 'w') do |file|
+    file.puts "#!/bin/bash"
+    file.puts 'echo "[TASK 1] Initialize Kubernetes Cluster"' 
+    file.puts "sudo kubeadm init --apiserver-advertise-address=#{api_server_address} --pod-network-cidr=#{pod_network_cidr} >> kubeinit.log 2>/dev/null"
+  end
+
+  # Transfer the generated script to master VM
+  config.vm.provision "file", source: local_script_path, destination: "/tmp/kube_init_script.sh"
+  ####################################################################################
+
+  
+  # Load rest of config_data from config file
   config_data = YAML.load_file('initial_setup.yaml')
 
   # The amount of time given to machine to complete reboot
