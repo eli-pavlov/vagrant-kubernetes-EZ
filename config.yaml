@@ -11,7 +11,7 @@ master:
   #####################################################################
   # Set amount of RAM memory,CPU cores and IP address for master node #
   #####################################################################
-  memory: 8096
+  memory: 4096
   cpus: 4
   master_ip: "192.168.10.100"
   master_virt: True   # enable nested virtualization on the master node
@@ -26,7 +26,7 @@ worker:
   ###############################################################
   # Set amount of RAM memory and CPU cores for each worker node #
   ###############################################################
-  memory: 6096
+  memory: 2048
   cpus: 2
   worker_virt: True      # Enable nested virtualization on worker nodes
 
