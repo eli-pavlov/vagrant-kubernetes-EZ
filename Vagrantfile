@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
   ####################################################################################
 
   # Define a path to store dynamically generated kubeadm init script locally
-  local_script_path = "./kube_init_script.sh"
+  local_script_path = "./scripts/kube_init_script.sh"
  
   # Generate the kubeadm init command with configured IP addresses
   File.open(local_script_path, 'w') do |file|
@@ -36,7 +36,7 @@ Vagrant.configure(2) do |config|
   config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
 
   # execute on each new machine the requirements.sh script
-  config.vm.provision "shell", path: "requirements.sh", args: NodeCount
+  config.vm.provision "shell", path: "./scripts/requirements.sh", args: NodeCount
 
   # Kubernetes Master
   config.vm.define "master" do |master|
@@ -52,7 +52,7 @@ Vagrant.configure(2) do |config|
       v.memory = config_data['master']['memory']
       v.cpus = config_data['master']['cpus']
     end
-    master.vm.provision "shell", path: "master.sh"
+    master.vm.provision "shell", path: "./scripts/master.sh"
     master.vm.box_download_insecure = true
   end
 
@@ -71,7 +71,7 @@ Vagrant.configure(2) do |config|
         v.memory = config_data['worker']['memory']
         v.cpus = config_data['worker']['cpus']
       end
-      worker.vm.provision "shell", path: "worker.sh"
+      worker.vm.provision "shell", path: "./scripts/worker.sh"
       worker.vm.box_download_insecure = true
     end
   end
