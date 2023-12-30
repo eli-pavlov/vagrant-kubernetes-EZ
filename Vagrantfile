@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
       
       # Create additional drives if defined in config file
       if config_data['master']['additional_storage_drives'].to_i > 0 &&
-           config_data['master']['additional_storage_drives'].to_i < 10
+          config_data['master']['additional_storage_drives'].to_i < 10
           Master_drives = (1..config_data['master']['additional_storage_drives']).to_a
           Master_drives.each do |hd|
             v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
@@ -81,7 +81,7 @@ Vagrant.configure(2) do |config|
 
       # Create additional drives if defined in config file
         if config_data['worker']['additional_storage_drives'].to_i > 0 &&
-             config_data['worker']['additional_storage_drives'].to_i < 10
+            config_data['worker']['additional_storage_drives'].to_i < 10
             Worker_drives = (1..config_data['worker']['additional_storage_drives']).to_a
             Worker_drives.each do |hd|
                v.customize ['createhd', '--filename', "./volumes/worker#{i}_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
