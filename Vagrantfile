@@ -9,10 +9,10 @@ Vagrant.configure(2) do |config|
 
   
   ### Due to Vagrant limitations we will have to generate the kubeadm init command ###
-  ### separately in advance, and provide it as a script to be executed on the      ###
-  ### master node afer VM creation. This is necessary to allow IP addresses to be  ###
-  ### configured dynamically in the config.yaml file                               ###
-  ####################################################################################
+  ### separately in advance, and provide it as a script to be executed on the               ###
+  ### master node after VM creation. This is necessary to allow IP addresses to be      ###
+  ### configured dynamically in the config.yaml file                                                       ###
+  ######################################################################
 
   # Define a path to store dynamically generated kubeadm init script locally
   local_script_path = "./scripts/kube_init_script.sh"

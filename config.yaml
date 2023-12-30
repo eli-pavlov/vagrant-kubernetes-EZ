@@ -5,8 +5,6 @@
 # How many worker nodes to deploy in addition to the master node
 NodeCount: 1
 
-
-
 master:
   #####################################################################
   # Set amount of RAM memory,CPU cores and IP address for master node #
@@ -14,7 +12,9 @@ master:
   memory: 4096
   cpus: 4
   master_ip: "192.168.10.100"
-  master_virt: True   # enable nested virtualization on the master node
+  storage_drives: 1            # How many storage drives the machine should have
+  storage_drives_size: 80  # What is the size of each storage drive in GB.
+  master_virt: True             # Enable/Disable nested virtualization on the master node
 
   ####################################################
   ### set the internal kubernetes pod network CIDR ###
@@ -28,10 +28,12 @@ worker:
   ###############################################################
   memory: 2048
   cpus: 2
-  worker_virt: True      # Enable nested virtualization on worker nodes
+  storage_drives: 1            # How many storage drives the machine should have
+  storage_drives_size: 80  # What is the size of each storage drive in GB.
+  worker_virt: True             # Enable/Disable nested virtualization on worker nodes
 
- #  Define ip range for worker nodes #
-  ip_prefix: "192.168.10."           #
-  start_index: 2                     #
-  count: <%= @NodeCount %>           #
- # # # # # # # # # # # # # # # # # # #
+ #  Define ip range for worker nodes  #
+  ip_prefix: "192.168.10."                    #
+  start_index: 2                                    #
+  count: <%= @NodeCount %>          #
+ # # # # # # # # # # # # # # # # # # ###
