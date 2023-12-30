@@ -14,7 +14,7 @@ master:
   master_ip: "192.168.10.100"
   storage_drives: 1            # How many storage drives the machine should have
   storage_drives_size: 80  # What is the size of each storage drive in GB.
-  master_virt: True             # Enable/Disable nested virtualization on the master node
+  master_virt: False             # Enable/Disable nested virtualization on the master node
 
   ####################################################
   ### set the internal kubernetes pod network CIDR ###
@@ -30,7 +30,7 @@ worker:
   cpus: 2
   storage_drives: 1            # How many storage drives the machine should have
   storage_drives_size: 80  # What is the size of each storage drive in GB.
-  worker_virt: True             # Enable/Disable nested virtualization on worker nodes
+  worker_virt: False            # Enable/Disable nested virtualization on worker nodes
 
  #  Define ip range for worker nodes  #
   ip_prefix: "192.168.10."                    #
