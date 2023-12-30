@@ -7,13 +7,13 @@ NodeCount: 1
 
 master:
   #######################################################################
-  # Set the amount of RAM memory, CPU cores and storage drives for  master node         #
+  # Set the IP, amount of RAM memory, CPU cores and storage drives for master node     #
   #######################################################################
   memory: 4096
   cpus: 4
-  master_ip: "192.168.10.100"
-  additional_storage_drives: 2            # How many additional storage drives the machine should have in addition to boot drive
-  storage_drives_size: 80                   # What is the size of each storage drive in GB.
+  master_ip: "192.168.10.100"            # ip of the master node guest VM machine
+  additional_storage_drives: 2            # How many additional storage drives the machine should have
+  storage_drives_size: 80                   # What is the size of each additional storage drive in GB
   master_virt: False                            # Enable/Disable nested virtualization on the master node
 
   #######################################################################
@@ -28,12 +28,14 @@ worker:
   #######################################################################
   memory: 2048
   cpus: 2
-  additional_storage_drives: 1            # How many additional storage drives the machine should have in addition to boot drive
-  storage_drives_size: 80                   # What is the size of each storage drive in GB.
+  additional_storage_drives: 1            # How many additional storage drives the machine should have
+  storage_drives_size: 80                   # What is the size of each additional storage drive in GB
   worker_virt: False                            # Enable/Disable nested virtualization on worker nodes
 
- #  Define ip range for worker nodes  #
-  ip_prefix: "192.168.10."                    #
-  start_index: 2                                    #
-  count: <%= @NodeCount %>          #
- # # # # # # # # # # # # # # # # # # ###
+
+  #######################################################################
+  #                              Define IP address range for worker nodes                                          #
+  #######################################################################
+  ip_prefix: "192.168.10."                    # ip prefix for worker nodes
+  start_index: 2                                    # starting ip address - e.x. 192.168.10.2
+  count: <%= @NodeCount %>          # do not change this line
