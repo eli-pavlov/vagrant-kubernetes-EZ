@@ -58,5 +58,6 @@ worker.vm.provider "virtualbox" do |v|
 end
 ```
 ## References
-* This repository was forked from [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu)
+* This repository was forked from [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant)
+* Which in turn was built upon [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu)
 * Installing Addons for Kubernetes [Installing Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)
