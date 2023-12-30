@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
   api_server_address = YAML.load_file('config.yaml')['master']['master_ip']
   pod_network_cidr = YAML.load_file('config.yaml')['master']['pod_network_cidr']
 
+
   ### Due to Vagrant limitations we will have to generate the kubeadm init command ###
   ### separately in advance, and provide it as a script to be executed on the      ###
   ### master node after VM creation. This is necessary to allow IP addresses to be ###
@@ -23,14 +24,15 @@ Vagrant.configure(2) do |config|
     file.puts "sudo kubeadm init --apiserver-advertise-address=#{api_server_address} --pod-network-cidr=#{pod_network_cidr} >> kubeinit.log 2>/dev/null"
   end
 
-  # Transfer the generated script to master VM
+  # Transfer the dynamically generated script to master VM
   config.vm.provision "file", source: local_script_path, destination: "/tmp/kube_init_script.sh"
   ####################################################################################
+
 
   # Load the rest of config_data from config file
   config_data = YAML.load_file('config.yaml')
 
-  # The amount of time given to the machine to complete reboot
+  # Define the amount of time given to the machine to complete reboot
   config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
 
   # Execute on each new machine the requirements.sh script
@@ -46,9 +48,9 @@ Vagrant.configure(2) do |config|
         v.customize ["modifyvm", :id, "--hwvirtex", "on"]
         v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
       end
-
+      
+      # Create additional drives if defined in config file
       Master_drives = (1..config_data['master']['additional_storage_drives']).to_a
-
       Master_drives.each do |hd|
         v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
         v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd+1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/master_disk#{hd}.vdi"]
@@ -74,8 +76,8 @@ Vagrant.configure(2) do |config|
           v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
         end
 
+      # Create additional drives if defined in config file
       Worker_drives = (1..config_data['worker']['additional_storage_drives']).to_a
-
       Worker_drives.each do |hd|
         v.customize ['createhd', '--filename', "./volumes/worker#{i}_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
         v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd+1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/worker#{i}_disk#{hd}.vdi"]
