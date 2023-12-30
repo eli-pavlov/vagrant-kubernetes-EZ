@@ -50,7 +50,6 @@ Vagrant.configure(2) do |config|
       Master_drives = (1..config_data['master']['additional_storage_drives']).to_a
 
       Master_drives.each do |hd|
-        puts "harddrive #{hd}"
         v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
         v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd+1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/master_disk#{hd}.vdi"]
       end
@@ -78,7 +77,6 @@ Vagrant.configure(2) do |config|
       Worker_drives = (1..config_data['worker']['additional_storage_drives']).to_a
 
       Worker_drives.each do |hd|
-        puts "harddrive #{hd}"
         v.customize ['createhd', '--filename', "./volumes/worker#{i}_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
         v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd+1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/worker#{i}_disk#{hd}.vdi"]
       end
