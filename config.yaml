@@ -6,31 +6,31 @@
 NodeCount: 1
 
 master:
-  #####################################################################
-  # Set amount of RAM memory,CPU cores and IP address for master node #
-  #####################################################################
+  #######################################################################
+  # Set the amount of RAM memory, CPU cores and storage drives for  master node         #
+  #######################################################################
   memory: 4096
   cpus: 4
   master_ip: "192.168.10.100"
-  storage_drives: 1            # How many storage drives the machine should have
-  storage_drives_size: 80  # What is the size of each storage drive in GB.
-  master_virt: False             # Enable/Disable nested virtualization on the master node
+  additional_storage_drives: 2            # How many additional storage drives the machine should have in addition to boot drive
+  storage_drives_size: 80                   # What is the size of each storage drive in GB.
+  master_virt: False                            # Enable/Disable nested virtualization on the master node
 
-  ####################################################
-  ### set the internal kubernetes pod network CIDR ###
-  ####################################################
+  #######################################################################
+  #                       set the internal kubernetes pod network CIDR                                       #
+  #######################################################################
   pod_network_cidr: "10.244.0.0/16"
 
 
 worker:
-  ###############################################################
-  # Set amount of RAM memory and CPU cores for each worker node #
-  ###############################################################
+  #######################################################################
+  # Set the amount of RAM memory, CPU cores and storage drives for each worker node #
+  #######################################################################
   memory: 2048
   cpus: 2
-  storage_drives: 1            # How many storage drives the machine should have
-  storage_drives_size: 80  # What is the size of each storage drive in GB.
-  worker_virt: False            # Enable/Disable nested virtualization on worker nodes
+  additional_storage_drives: 1            # How many additional storage drives the machine should have in addition to boot drive
+  storage_drives_size: 80                   # What is the size of each storage drive in GB.
+  worker_virt: False                            # Enable/Disable nested virtualization on worker nodes
 
  #  Define ip range for worker nodes  #
   ip_prefix: "192.168.10."                    #
