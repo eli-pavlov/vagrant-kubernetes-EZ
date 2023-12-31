@@ -35,10 +35,10 @@ The purpose of this project is
   - Script to install required packages on all VM's.
   </ul> </details>
     <details> <summary>master.sh:</summary> <ul>
-  -  Configuration file to create a Persistent Volume for MySQL to store the working directory in a persistent way.
+  -  Script to Install Master node specific packages and deploy Kubernetes cluster.
   </ul> </details>
     <details> <summary>worker.sh:</summary> <ul>
-  - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
+  - Script to join worker nodes to the cluster.
   </ul> </details>
 - **/docs:** Directory containing media files.
 - **LICENSE.txt:** License file.
