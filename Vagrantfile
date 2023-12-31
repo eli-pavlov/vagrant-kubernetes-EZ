@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: local_hosts_path, destination: "/tmp/scripts/hosts"
 
 #######################################################################
-##Execute on each new VM the requirements.sh script, installing needed packages##
+##        Execute on each new VM the requirements.sh script          ##
 #######################################################################
 
   # Define the amount of time given to the machine to complete reboot
