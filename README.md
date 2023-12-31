@@ -45,7 +45,7 @@ $~$
 
 ### Prerequisites
 
-1. **First - check Virtualization is Enabled in BIOS:**
+1. **Check Virtualization is Enabled in BIOS:**
 <img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
 In AMD machines the feature is called SVM
 <img src= "https://cdn.ourcodeworld.com/public-media/gallery/gallery-5f0b6e1ec413f.jpg" width=320 />
