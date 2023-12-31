@@ -1,5 +1,5 @@
 <div align='center'>
-<img src= "https://miro.medium.com/v2/resize:fit:720/format:webp/1*f1hLnqSswkvl8TVKMMjyFw.png" width=320 />
+<img src= "https://raw.githubusercontent.com/eli-pavlov/kubernetes-vagrant-EZ/master/docs/logo.webp?token=GHSAT0AAAAAACMFKVI4YE6OBGGTMUWQYTW4ZMR277Q" width=320 />
 <h1>Vagrant Kuberentes EZ</h1>
  
 <p> Easily deploy Kubernetes with Vagrant</p>
