@@ -45,7 +45,7 @@ $~$
 
 ### Prerequisites
 
-1. **VirtualBox (Together with CPU Virtualization Enabled on host)**
+1. **VirtualBox (Check CPU Virtualization Enabled in BIOS)**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
