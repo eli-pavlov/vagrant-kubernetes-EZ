@@ -10,9 +10,6 @@
 $~~$
 
 </div>
-
-
-
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
@@ -21,12 +18,9 @@ $~~$
 - [License](#warning-license)
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
-$~~~~~~$
 
 
 
-
-$~~~~~~$
 ## :star2: About the Project
 The purpose of this project is do deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant, $~$ 
 within minutes using with one command only - "vagrant up".
