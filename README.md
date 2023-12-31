@@ -99,7 +99,7 @@ $~$
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
-- **/scripts:** Directory containing deployment scripts. --> Press on the file names below for description.
+- **/scripts:** Directory containing scripts and dynamically generated files. --> Press on the file names below for description.
 
 
   
