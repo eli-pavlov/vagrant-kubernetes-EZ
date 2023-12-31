@@ -108,6 +108,7 @@ vagrant up
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
 
+$~$
 ## :warning: License
 
 Distributed under the Apache License 2.0 License.
