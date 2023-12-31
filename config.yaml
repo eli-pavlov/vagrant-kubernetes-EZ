@@ -3,7 +3,7 @@
 ###################################################
 
 # How many worker nodes to deploy in addition to the master node
-NodeCount: 1
+NodeCount: 2
 
 master:
   #######################################################################
@@ -12,14 +12,14 @@ master:
   memory: 4096
   cpus: 4
   master_ip: "192.168.10.100"            # ip of the master node guest VM machine
-  additional_storage_drives: 2            # How many additional storage drives the machine should have
+  additional_storage_drives: 0            # How many additional storage drives the machine should have
   storage_drives_size: 80                   # What is the size of each additional storage drive in GB
   master_virt: False                            # Enable/Disable nested virtualization on the master node
 
   #######################################################################
   #                       set the internal kubernetes pod network CIDR                                       #
   #######################################################################
-  pod_network_cidr: "10.244.0.0/16"
+  pod_network_cidr: "172.16.0.0/16"
 
 
 worker:
