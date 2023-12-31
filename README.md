@@ -28,7 +28,7 @@ $~~$
 The purpose of this project is to deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant. </br>
 Creating customized Kubernetes cluster within minutes using one command only - "vagrant up".
 
-After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to make the process </br> as easy and effortless as possible. While there are many Vagrant boxes and repos out there, 
+After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to make </br> the process as easy and effortless as possible. While there are many Vagrant boxes and repos out there, 
 the majority are outdated, </br> and also I could not find a deployment I could easily customize for my needs.
 
 This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/), brings it up to date </br> with OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
