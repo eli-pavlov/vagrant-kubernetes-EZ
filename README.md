@@ -45,7 +45,7 @@ $~$
 
 ### Prerequisites
 
-1. **First - check CPU Virtualization is Enabled in BIOS**
+1. **First - check CPU Virtualization is Enabled in BIOS:**
 <img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
 
 
