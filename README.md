@@ -57,7 +57,7 @@ Default config.yaml configuration:
 $~$
 $~$
 
-### :space_invader: Tech Stack
+## :space_invader: Tech Stack
 <details> <summary>VirtualBox</summary> <ul>
 <li><a href="https://www.virtualbox.org">VirtualBox</a></li>
 </ul> </details>
