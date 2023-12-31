@@ -47,9 +47,9 @@ $~$
 
 1. **First - check Virtualization is Enabled in BIOS:**
 <img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
-..In AMD machines the feature is called SVM
+__In AMD machines the feature is called SVM
 <img src= "https://cdn.ourcodeworld.com/public-media/gallery/gallery-5f0b6e1ec413f.jpg" width=320 />
-..It is also a good practice to disable Windows HyperV when using VirtualBox:
+__It is also a good practice to disable Windows HyperV when using VirtualBox:
 <img src= "https://cdn.ourcodeworld.com/public-media/gallery/gallery-5f1f2fa04c3b6.png" width=320 />
 
 2. **VirtualBox**
