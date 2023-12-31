@@ -46,7 +46,7 @@ $~$
 ### Prerequisites
 
 1. **First - check CPU Virtualization is Enabled in BIOS**
-   <img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
+<img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
 
 ```bash
 https://www.virtualbox.org/wiki/Downloads
