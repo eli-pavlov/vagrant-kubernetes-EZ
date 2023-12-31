@@ -85,7 +85,7 @@ $~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-3. **Review configuration file**
+3. **Review config.yaml file**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
