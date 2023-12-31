@@ -15,7 +15,7 @@ sudo cat /vagrant/scripts/hosts > /etc/hosts
 
 # install time synchronization server
 echo ""
-echo "[TASK 4] install time synchronization server"
+echo "[TASK 2] install time synchronization server"
 sudo apt update
 sudo apt-get install ntp
 sudo apt-get install ntpdate
@@ -24,7 +24,7 @@ echo "...done..."
 
 # Forwarding IPv4 and letting iptables see bridged traffic:
 echo ""
-echo "[TASK 5] Forwarding IPv4 and letting iptables see bridged traffic"
+echo "[TASK 3] Forwarding IPv4 and letting iptables see bridged traffic"
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
@@ -35,7 +35,7 @@ sudo modprobe br_netfilter
 
 # sysctl params required by setup, params persist across reboots
 echo ""
-echo "[TASK 6] sysctl params required by setup, params persist across reboots"
+echo "[TASK 4] sysctl params required by setup, params persist across reboots"
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -48,14 +48,14 @@ echo "...done..."
 
 # Disable swap
 echo ""
-echo "[TASK 7] Disable swap"
+echo "[TASK 5] Disable swap"
 sed -i '/swap/d' /etc/fstab
 swapoff -a
 echo "...done..."
 
 # Add repository:
 echo ""
-echo "[TASK 8] Add repository"
+echo "[TASK 6] Add repository"
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -67,7 +67,7 @@ echo "...done..."
 
 # Install Containerd:
 echo ""
-echo "[TASK 9] Install Containerd"
+echo "[TASK 7] Install Containerd"
 
 sudo apt-get update
 sudo apt-get install containerd.io
@@ -94,7 +94,7 @@ sudo apt-get install -y apt-transport-https ca-certificates curl
 
 # Add Kubernetes repository:
 echo ""
-echo "[TASK 10] Install Kubernetes components"
+echo "[TASK 8] Install Kubernetes components"
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
@@ -108,7 +108,7 @@ echo "...done..."
 
 # create user kube for compliancy and add to sudoers
 echo ""
-echo "[TASK 11] create user kube for compliancy and add to sudoers"
+echo "[TASK 9] create user kube for compliancy and add to sudoers"
 sudo useradd -md "/home/kube" -G sudo kube
 sudo echo "kube:kube" | sudo chpasswd
 sudo cp /home/vagrant/.bashrc /home/kube/.bashrc
@@ -118,7 +118,7 @@ echo "...done..."
 
 # create alias for kubectl command
 echo ""
-echo "[TASK 12] create alias for kubectl command"
+echo "[TASK 10] create alias for kubectl command"
 su - vagrant -c 'echo "alias k=kubectl" >> /home/vagrant/.bashrc'
 su - kube -c 'echo "alias k=kubectl" >> /home/kube/.bashrc'
 echo "...done..."
