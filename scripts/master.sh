@@ -14,7 +14,7 @@ echo "...done..."
 
 # Generate Cluster join command
 echo ""
-echo "[TASK 2] Generate and save cluster yjoin command to /vagrant/scripts/joincluster.sh"
+echo "[TASK 2] Generate and save cluster join command to /vagrant/scripts/joincluster.sh"
 sudo kubeadm token create --print-join-command > /vagrant/scripts/joincluster.sh 2>/dev/null
 echo "...done..."
 
