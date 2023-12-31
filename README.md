@@ -39,28 +39,6 @@ The purpose of this project is
     <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
-  ---
-  ---
-  <details> <summary>Wordpress-storage-class.yaml:</summary> <ul>
-  - Defining a storage class which will we will use for the creation and assignment of Wordpress persistent volume.
-  </ul> </details>
-    <details> <summary>Wordpress-pv.yaml::</summary> <ul>
-  -  Configuration file to create a Persistent Volume for Wordpress to store the working directory in a persistent way.
-  </ul> </details>
-    <details> <summary>Wordpress-pvc.yaml:</summary> <ul>
-  - Configuration file to create a Persistent Volume Claim for Wordpress, to claim the created above Persistent Volume.
-  </ul> </details>
-    <details> <summary>Wordpress-configmap.yaml:</summary> <ul>
-  - ConfigMap to define variables for Wordpress deployment in a dynamic rather than a static way.
-  </ul> </details>
-    <details> <summary>Wordpress-deployment.yaml:</summary> <ul>
-  - Main configuration file for the deployment of Wordpress database as a micro-service in kubernetes.
-  </ul> </details>
-    <details> <summary>Wordpress-service.yaml:</summary>** <ul>
-  - Configuration file to create a LoadBalancer service for internet access to Wordpress platform.
-  </ul> </details>    
-  
-
 
 ---
 
