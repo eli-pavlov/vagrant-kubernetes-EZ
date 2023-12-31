@@ -23,7 +23,7 @@
 The purpose of this project is 
 
 
-## Project files
+## Project map
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
@@ -44,8 +44,8 @@ The purpose of this project is
 ---
 
 Notes:
-1. All values for the configuration of the chart components are defined in the values.yaml file.
-2. For this project 2GB of disk space were defined for each service, for actual use you would like to define 20GB or more.
+1. All values for the configuration of the chart components are defined in the config.yaml file.
+2. The default config is 4 CPU cores and 4GB RAM for Master, 1 CPU cores and 2GB RAM for worker nodes.
 3. The password for the database is Base64 encoded as a Kubernetes secret.
 
 
