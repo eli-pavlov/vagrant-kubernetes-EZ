@@ -26,7 +26,7 @@ The purpose of this project is
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
-- - **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
+- **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
   <details> <summary>requirements.sh:</summary> <ul>
   - Script to install required packages on all VM's.
   </ul> </details>
