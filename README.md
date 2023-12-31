@@ -40,12 +40,6 @@ The purpose of this project is
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
   ---
-    **values.yaml:** Default configuration values for the Helm chart.
-
-    **secret.yaml:** Configuration file for storing MySQL database password as a Kubernetes secret, the password is stored in Base64 format.
-
-    **NOTES.txt:** File with instructions to be shown after deployment.
-
   ---
   <details> <summary>Wordpress-storage-class.yaml:</summary> <ul>
   - Defining a storage class which will we will use for the creation and assignment of Wordpress persistent volume.
