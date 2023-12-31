@@ -28,7 +28,7 @@ $~~$
 The purpose of this project is to deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant. </br>
 Creating customized Kubernetes cluster within minutes using one command only - "vagrant up".
 
-After having to go through the process of creating Kubernetes clusters multiple times on my machine, for Development and Study purposes, </br>
+After having to go through the process of creating Kubernetes clusters multiple times on my machine, </br>
 I wanted to make the process as easy and effortless as possible. While there are many Vagrant boxes and repos out there, 
 the majority are outdated, and also I could not find a deployment I could easily customize for my needs.
 
