@@ -109,7 +109,7 @@ $~$
 
 ## :gem: Acknowledgements
 
-- [Kubernetes.io Documentation](https://kubernetes.io/docs)
+- [Kubernetes.io](https://kubernetes.io/docs)
 - [Oracle VirtualBox](https://www.virtualbox.org)
 - [HashiCorp Vagrant](https://www.vagrantup.com)
 - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant)
