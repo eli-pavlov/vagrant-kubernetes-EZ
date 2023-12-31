@@ -51,19 +51,19 @@ $~~~$
 
 ## :gear: Installation
 
-1. **Clone this repository**
+1. **Clone this repository:**
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-3. **Review config.yaml file**
+3. **Review config.yaml file:**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-3. **Deploy the cluster**
+3. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
-3. **Check cluster state**
+3. **Check cluster state:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
