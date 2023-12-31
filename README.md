@@ -102,9 +102,10 @@ vim config.yaml ##//(or edit using your editor of choice)//##
 ```bash
 vagrant up
 ```
-
-4. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
-$~~$
+3. **Check cluster:**
+```bash
+vagrant ssh master -c "kubectl get nodes -o wide"
+```$~~$
 
 ## :warning: License
 
