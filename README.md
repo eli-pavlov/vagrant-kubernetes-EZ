@@ -29,6 +29,14 @@ within minutes using with one command only - "vagrant up".
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
+  <details> <summary>4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.</summary> <ul>
+  </ul> </details>
+    <details> <summary>IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....</summary> <ul>
+  -  Script to Install Master node specific packages and initialize the Kubernetes cluster.
+  </ul> </details>
+    <details> <summary>Nested Virtualization Vt-x/AMD-v Disabled. </summary> <ul>
+  - Script to join worker nodes to the cluster.
+  </ul> </details>
   <details> <summary>Default config.yaml configuration:</summary> <ul>
       1. 4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.
       2. IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....
