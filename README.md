@@ -25,7 +25,7 @@ $~~~~~~~~~~~$
 The purpose of this project is do deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant, $~$ 
 within minutes using with one command only - "vagrant up".
 
-## Map
+## Files
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
