@@ -100,7 +100,7 @@ See LICENSE.txt for more information.
 
 Eli Pavlov - www.weblightenment.com - admin@weblightenment.com
 
-Project Link: https://github.com/eli-pavlov/helm-wordpress-mariadb.git)](https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 
 ## :gem: Acknowledgements
 
