@@ -13,8 +13,9 @@ $~~$
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-- [Prequisites](#space_invader-tech-stack)
+- [Prequisites](#toolbox-getting-started)
 - [Installation](#gear-installation)
+- [Project Files](#file-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
@@ -88,6 +89,8 @@ $~$
 - **/docs:** Directory containing media files.
 - **LICENSE.txt:** License file.
 - **README.md:** Readme file formatted for Github, with information about the chart.
+
+
 $~$
 
 
