@@ -56,19 +56,6 @@ Default config.yaml configuration:
 $~$
 $~$
 
-## :space_invader: Tech Stack
-<details> <summary>VirtualBox</summary> <ul>
-<li><a href="https://www.virtualbox.org">VirtualBox</a></li>
-</ul> </details>
-<details> <summary>Vagrant</summary> <ul>
-<li><a href="https://www.vagrantup.com">Vagrant</a></li>
-</ul> </details>
-<details> <summary>Canonical Ubuntu</summary> <ul>
-<li><a href="https://www.ubuntu.com">Canonical Ubuntu</a></li>
-</ul> </details>
-<details> <summary>Kubernetes</summary> <ul>
-<li><a href="https://kubernetes.io">Kubernetes</a></li>
-</ul> </details>
 
 ## :toolbox: Getting Started
 
