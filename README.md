@@ -71,7 +71,8 @@ $~$
 </ul> </details>
 
 ## :toolbox: Getting Started
-$~$
+
+
 ### :bangbang: Prerequisites
 
 1. **Install VirtualBox:**
