@@ -27,11 +27,14 @@ Vagrant.configure(2) do |config|
     file.puts "#{config_data['master']['master_ip']} master master"
 
     # Add worker entries
-    (1..config_data['NodeCount']).each do |i|
-      worker_hostname = "worker#{i}"
-      worker_ip = "#{config_data['worker']['ip_prefix']}#{i + config_data['worker']['start_index'] - 1}"
-      file.puts "#{worker_ip} #{worker_hostname} #{worker_hostname}"
+    if config_data['NodeCount'] >= 1
+      (1..config_data['NodeCount']).each do |i|
+        worker_hostname = "worker#{i}"
+        worker_ip = "#{config_data['worker']['ip_prefix']}#{i + config_data['worker']['start_index'] - 1}"
+        file.puts "#{worker_ip} #{worker_hostname} #{worker_hostname}"
+      end
     end
+
     # Add ipv6 context
     file.puts '# The following lines are desirable for IPv6 capable hosts'
     file.puts '::1     localhost ip6-localhost ip6-loopback'
@@ -76,33 +79,35 @@ Vagrant.configure(2) do |config|
   end
 
   # Kubernetes nodes
-  (1..config_data['NodeCount']).each do |i|
-    config.vm.define "worker#{i}" do |worker|
-      worker.vm.box = "ubuntu/jammy64"
-      worker.vm.hostname = "worker#{i}"
-      worker.vm.network "private_network", ip: "#{config_data['worker']['ip_prefix']}#{i + config_data['worker']['start_index'] - 1}"
-      worker.vm.provider "virtualbox" do |v|
-        if config_data['worker']['worker_virt'].to_s.downcase == 'true'
-          v.customize ["modifyvm", :id, "--hwvirtex", "on"]
-          v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        end
-
-        # Create additional drives if defined in the config file
-        if config_data['worker']['additional_storage_drives'].to_i > 0 &&
-            config_data['worker']['additional_storage_drives'].to_i < 10
-          Worker_drives = (1..config_data['worker']['additional_storage_drives']).to_a
-          Worker_drives.each do |hd|
-            v.customize ['createhd', '--filename', "./volumes/worker#{i}_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
-            v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd + 1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/worker#{i}_disk#{hd}.vdi"]
+  if config_data['NodeCount'] >= 1
+    (1..config_data['NodeCount']).each do |i|
+      config.vm.define "worker#{i}" do |worker|
+        worker.vm.box = "ubuntu/jammy64"
+        worker.vm.hostname = "worker#{i}"
+        worker.vm.network "private_network", ip: "#{config_data['worker']['ip_prefix']}#{i + config_data['worker']['start_index'] - 1}"
+        worker.vm.provider "virtualbox" do |v|
+          if config_data['worker']['worker_virt'].to_s.downcase == 'true'
+            v.customize ["modifyvm", :id, "--hwvirtex", "on"]
+            v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
           end
-        end
 
-        v.name = "worker#{i}"
-        v.memory = config_data['worker']['memory']
-        v.cpus = config_data['worker']['cpus']
+          # Create additional drives if defined in the config file
+          if config_data['worker']['additional_storage_drives'].to_i > 0 &&
+              config_data['worker']['additional_storage_drives'].to_i < 10
+            Worker_drives = (1..config_data['worker']['additional_storage_drives']).to_a
+            Worker_drives.each do |hd|
+              v.customize ['createhd', '--filename', "./volumes/worker#{i}_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
+              v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd + 1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/worker#{i}_disk#{hd}.vdi"]
+            end
+          end
+
+          v.name = "worker#{i}"
+          v.memory = config_data['worker']['memory']
+          v.cpus = config_data['worker']['cpus']
+        end
+        worker.vm.provision "shell", path: "./scripts/worker.sh"
+        worker.vm.box_download_insecure = true
       end
-      worker.vm.provision "shell", path: "./scripts/worker.sh"
-      worker.vm.box_download_insecure = true
     end
   end
 end
