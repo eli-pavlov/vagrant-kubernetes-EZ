@@ -94,7 +94,7 @@ $~~$
 
 Distributed under the Apache License 2.0 License.
 
-Please note that Kubernetes and Vagrant have their own respective licenses. 
+Please note that Kubernetes VirtualBox and Vagrant have their own respective licenses. 
 
 See LICENSE.txt for more information.
 $~$
