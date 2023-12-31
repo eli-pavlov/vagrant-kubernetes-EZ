@@ -86,8 +86,8 @@ vagrant up
 ```
 
 3. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
-
 $~$
+
 ## :warning: License
 
 Distributed under the Apache License 2.0 License.
@@ -102,6 +102,7 @@ $~$
 Eli Pavlov - www.weblightenment.com - admin@weblightenment.com
 
 Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+$~$
 
 ## :gem: Acknowledgements
 
