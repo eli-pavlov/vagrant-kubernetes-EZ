@@ -38,7 +38,7 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 - Fully customized IP addreses and CIDR's.
 - Choice of Kubernetes networking plugins: Flannel, Weave or Cillium [default].
 - Option to Enable/Distable nested virtualization for guest VM's.
-- Quality of life features like:
+- Quality of life features like:</br>
   Dynamic generation of guest VM's hosts file and hostnames.</br>
   for CKA practice - Kube user, kubectl "k" alias, etc...
 - All managed in a dynamic way from a single configuration file.
