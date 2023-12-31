@@ -30,7 +30,7 @@ Create customized Kubernetes cluster within minutes using with one command only 
 
 
 $~$
-## :cat: Getting Started
+## :cat2: Getting Started
 
 
 ### Prerequisites
