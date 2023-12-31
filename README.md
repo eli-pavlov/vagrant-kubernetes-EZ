@@ -20,8 +20,8 @@ $~~$
 - [Acknowledgements](#gem-acknowledgements)
 
 $~~~~~~~~~~~$
-
-
+$~~~~~~~~~~~$
+$~~~~~~~~~~~$
 
 ## :star2: About the Project
 The purpose of this project is do deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant, $~$ 
