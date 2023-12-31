@@ -2,7 +2,7 @@
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/fda6bd8944a07a677f42d20ca32b5c597d0e9a22/docs/logo.webp" width=320 />
 <h1>Vagrant Kuberentes EZ</h1>
  
-<p> Easily deploy fully featured Kubernetes with Vagrant</p>
+<p> Easily deploy fully featured Kubernetes with Vagrant on a single machine</p>
 
 <h4> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/issues"> Request Feature </a> </h4>
 
