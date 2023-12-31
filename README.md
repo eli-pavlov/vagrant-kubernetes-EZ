@@ -94,8 +94,29 @@ vagrant up
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
+## Files
 
+- **Vagrantfile:** Main deployment file.
+- **config.yaml:** Main configuration file.
+- **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
+
+
+  
+  <details> <summary>requirements.sh:</summary> <ul>
+  - Script to install required packages on all VM's.
+  </ul> </details>
+    <details> <summary>master.sh:</summary> <ul>
+  -  Script to Install Master node specific packages and initialize the Kubernetes cluster.
+  </ul> </details>
+    <details> <summary>worker.sh:</summary> <ul>
+  - Script to join worker nodes to the cluster.
+  </ul> </details>
+- **/docs:** Directory containing media files.
+- **LICENSE.txt:** License file.
+- **README.md:** Readme file formatted for Github, with information about the chart.
 $~$
+
+
 ## :warning: License
 
 Distributed under the Apache License 2.0 License.
