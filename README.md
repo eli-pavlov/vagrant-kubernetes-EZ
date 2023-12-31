@@ -57,6 +57,9 @@ $~$
 $~$
 
 ## :space_invader: Tech Stack
+<details> <summary>Canonical Ubuntu</summary> <ul>
+<li><a href="https://www.ubuntu.com">Canonical Ubuntu</a></li>
+</ul> </details>
 <details> <summary>VirtualBox</summary> <ul>
 <li><a href="https://www.virtualbox.org">VirtualBox</a></li>
 </ul> </details>
@@ -108,7 +111,7 @@ Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 $~$
 
 ## :gem: Acknowledgements
-
+- [Canonical Ubuntu](https://ubuntu.com/community/governance/canonical)
 - [Kubernetes.io](https://kubernetes.io/docs)
 - [Oracle VirtualBox](https://www.virtualbox.org)
 - [HashiCorp Vagrant](https://www.vagrantup.com)
