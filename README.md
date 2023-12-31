@@ -104,8 +104,9 @@ Project Link: [https://github.com/eli-pavlov/helm-wordpress-mariadb.git](https:/
 
 ## :gem: Acknowledgements
 
-- [Kubernetes.io Documentation](https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/)
-- [Helm Documentation](https://v3.helm.sh/docs/chart_template_guide/)
-- [Wordpress](https://wordpress.com/)
-- [MariaDB foundation](https://mariadb.org/)
+- [Kubernetes.io Documentation](https://kubernetes.io/docs)
+- [HashiCorp Vagrant](https://www.vagrantup.com/)
+- [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant)
+- [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu)
+- [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/)
 - [Awesome Github Readme File Generator](https://www.genreadme.cloud/)
