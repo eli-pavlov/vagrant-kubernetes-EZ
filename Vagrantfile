@@ -5,8 +5,8 @@ Vagrant.configure(2) do |config|
   # Load the configuration data from the YAML file
   config_data = YAML.load_file('config.yaml')
 
-  ####################################################################################
-  # Generate the kubeadm init command with configured IP addresses
+  ### Generate the kubeadm init command with configured IP addresses ###
+  ############################################################
   local_script_path = "./scripts/kube_init_script.sh"
   File.open(local_script_path, 'w') do |file|
     file.puts "#!/bin/bash"
@@ -16,8 +16,9 @@ Vagrant.configure(2) do |config|
 
   # Transfer the dynamically generated script to the master VM
   config.vm.provision "file", source: local_script_path, destination: "/tmp/kube_init_script.sh"
-  ####################################################################################
-  # Generate hosts file
+
+  ###  Generate hosts file  ####
+  ########################
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
   File.open(local_hosts_path, 'w') do |file|
@@ -41,7 +42,7 @@ Vagrant.configure(2) do |config|
     file.puts 'ff02::1 ip6-allnodes'
     file.puts 'ff02::2 ip6-allrouters'
   end
-  ####################################################################################
+  ###########################
 
   # Define the amount of time given to the machine to complete reboot
   config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
