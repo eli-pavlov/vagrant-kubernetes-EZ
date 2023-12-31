@@ -41,7 +41,6 @@ The purpose of this project is
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
 ---
----
 
 Notes:
 1. All values for the configuration of the chart components are defined in the values.yaml file.
