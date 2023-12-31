@@ -46,7 +46,7 @@ The purpose of this project is
 
 ---
 
-Default deployment configuration:
+Default config.yaml configuration:
 1. 4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.
 2. IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....
 3. Nested Virtualization Vt-x/AMD-v Disabled.
