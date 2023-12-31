@@ -30,10 +30,14 @@ within minutes using with one command only - "vagrant up".
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
   <details> <summary>Default config.yaml configuration:</summary> <ul>
-      - 4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.
-      - IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....
-      - Nested Virtualization Vt-x/AMD-v Disabled.
-      - No additional storage disks.
+      1. 4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.
+    
+      2. IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....
+  
+      3. Nested Virtualization Vt-x/AMD-v Disabled.
+  
+      4. No additional storage disks.
+  
       </ul> </details>
 - **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
 
