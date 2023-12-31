@@ -73,7 +73,7 @@ $~$
 ## :toolbox: Getting Started
 
 
-### :bangbang: Prerequisites
+### Prerequisites
 
 1. **Install VirtualBox:**
 ```bash
