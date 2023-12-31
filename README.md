@@ -64,7 +64,11 @@ vagrant up
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
-## Files
+
+$~$
+
+
+## 📂 Files
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
