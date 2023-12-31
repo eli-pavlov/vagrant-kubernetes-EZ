@@ -103,7 +103,7 @@ vim config.yaml ##//(or edit using your editor of choice)//##
 ```bash
 vagrant up
 ```
-3. **Verify successful deployment:**
+3. **Confirm successful deployment:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
