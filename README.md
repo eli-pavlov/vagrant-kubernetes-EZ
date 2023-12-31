@@ -75,15 +75,15 @@ $~$
 
 ### Prerequisites
 
-1. **Install VirtualBox:**
+1. **VirtualBox:**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
-3. **Install Vagrant**
+3. **Vagrant**
 ```bash
 https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
 ```
-3. **Install GIT**
+3. **GIT**
 ```bash
 https://git-scm.com/downloads
 ```
