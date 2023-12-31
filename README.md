@@ -101,6 +101,8 @@ Distributed under the Apache License 2.0 License.
 Please note that Kubernetes VirtualBox and Vagrant have their own respective licenses. 
 
 See LICENSE.txt for more information.
+
+
 $~$
 
 ## :handshake: Contact
@@ -108,6 +110,8 @@ $~$
 Eli Pavlov - www.weblightenment.com - admin@weblightenment.com
 
 Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+
+
 $~$
 
 ## :gem: Acknowledgements and thanks to:
