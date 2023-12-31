@@ -118,7 +118,9 @@ $~$
 
 
 $~$
-
+<ul>
+  -  Script to Install Master node specific packages and initialize the Kubernetes cluster.
+  </ul> </details>
 
 ## :warning: License
 
