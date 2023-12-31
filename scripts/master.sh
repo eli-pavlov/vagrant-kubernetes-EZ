@@ -4,7 +4,7 @@
 echo ""
 echo ""
 echo "##################################"
-echo "#          RUNNING master.sh script            #"
+echo "#   RUNNING master.sh script     #"
 echo "##################################"
 sleep 2
 echo ""

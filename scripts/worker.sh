@@ -4,7 +4,7 @@
 echo ""
 echo ""
 echo "##################################"
-echo "#         RUNNING worker.sh script             #"
+echo "#   RUNNING worker.sh script     #"
 echo "##################################"
 sleep 2
 echo ""

@@ -1,5 +1,5 @@
   #######################################################################
-  #///                                  Define cluster configuration in this file                                      ///#
+  #///        Define cluster configuration in this file              ///#
   #######################################################################
 
   # How many worker nodes to deploy in addition to the master node
@@ -7,7 +7,7 @@ NodeCount: 2
 
 master:
   #######################################################################
-  # Set the IP, amount of RAM memory, CPU cores and storage drives for master node     #
+  # Set the IP, amount of RAM memory, CPU cores and storage drives for master node
   #######################################################################
   memory: 4096
   cpus: 4
@@ -17,15 +17,15 @@ master:
   master_virt: False                         # Enable/Disable nested virtualization on the master node
 
   #######################################################################
-  #                       set the internal Kubernetes pod Network plugin and  CIDR                       #
+  #     set the internal Kubernetes pod Network plugin and  CIDR        #
   #######################################################################
   pod_network_plugin: Cilium              # Choose between Weave, Flannel or Cilium. Write without quotes.
-  pod_network_cidr: "10.244.0.0/16"     # This is the default Flannel CIDR. Works fine also with the rest.
+  pod_network_cidr: "10.244.0.0/16"     # This is the default Flannel CIDR. Works great also with the rest.
 
 
 worker:
   #######################################################################
-  # Set the amount of RAM memory, CPU cores and storage drives for each worker node #
+  # Set the amount of RAM memory, CPU cores and storage drives for each worker node 
   #######################################################################
   memory: 2048
   cpus: 2
@@ -35,7 +35,7 @@ worker:
 
 
   #######################################################################
-  #                              Define IP address range for worker nodes                                          #
+  #            Define IP address range for worker nodes                 #
   #######################################################################
   ip_prefix: "192.168.10."                 # ip prefix for worker nodes
   start_index: 101                          # starting ip address - e.x. 192.168.10.101

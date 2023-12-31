@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
   config_data = YAML.load_file('config.yaml')
 
 #######################################################################
-###        Generate the kubeadm init command with pre-configured IP addresses         ###
+##Generate the kubeadm init command with pre-configured IP addresses ##
 #######################################################################
 
   local_script_path = "./scripts/kube_init_script.sh"
@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: local_script_path, destination: "/tmp/scripts/kube_init_script.sh"
 
 #######################################################################
-###                  Generate the /etc/hosts file to be deployed on every node                     ###
+###  Generate the /etc/hosts file to be deployed on every node      ###
 #######################################################################
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: local_hosts_path, destination: "/tmp/scripts/hosts"
 
 #######################################################################
-###Execute on each new VM the requirements.sh script, installing needed packages ###
+##Execute on each new VM the requirements.sh script, installing needed packages##
 #######################################################################
 
   # Define the amount of time given to the machine to complete reboot
@@ -61,7 +61,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "./scripts/requirements.sh", args: config_data['NodeCount']
 
 #######################################################################
-###          Create and configure the Master node, and deploy the cluster                      ###
+##   Create and configure the Master node, and deploy the cluster   ###
 #######################################################################
 
   # Kubernetes Master
@@ -95,7 +95,7 @@ Vagrant.configure(2) do |config|
 
 
 #######################################################################
-###               Create and configure the worker nodes and join the cluster                      ###
+###   Create and configure the worker nodes and join the cluster    ###
 #######################################################################
   # Kubernetes nodes
   if config_data['NodeCount'] >= 1
