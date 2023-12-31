@@ -45,7 +45,7 @@ $~$
 
 ### Prerequisites
 
-1. **VirtualBox**
+1. **VirtualBox (Together with CPU Virtualization Enabled on host)**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
