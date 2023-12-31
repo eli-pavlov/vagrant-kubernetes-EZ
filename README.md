@@ -58,15 +58,15 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=320 />
 
-3. **VirtualBox**
+3. **Install VirtualBox**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
-3. **Vagrant**
+3. **Install Vagrant**
 ```bash
 https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
 ```
-4. **GIT**
+4. **Install GIT**
 ```bash
 https://git-scm.com/downloads
 ```
