@@ -45,7 +45,11 @@ $~$
 
 ### Prerequisites
 
-1. **VirtualBox  (Check CPU Virtualization is Enabled in BIOS)**
+1. **(Check CPU Virtualization is Enabled in BIOS)**
+<img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
+
+https://i.stack.imgur.com/tNksn.jpg
+1. **VirtualBox**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
