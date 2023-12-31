@@ -74,9 +74,18 @@ $~$
 
 ### :bangbang: Prerequisites
 
-- AWS or any other cloud based Kubernetes cluster with "Helm" installed.
-- Git installed (sudo apt/yum/dnf install git).
-- Hosted zone in "Route53" or any other domain manager, with a domain or a sub.domain defined for Wordpress server.
+1. **Install VirtualBox:**
+```bash
+https://www.virtualbox.org/wiki/Downloads
+```
+3. **Install Vagrant**
+```bash
+https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
+```
+3. **Install GIT**
+```bash
+https://git-scm.com/downloads
+```
 
 
 ## :gear: Installation
@@ -89,12 +98,12 @@ git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-2. **Deploy the cluster:**
+3. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
 
-3. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
+4. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
 $~~$
 
 ## :warning: License
