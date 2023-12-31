@@ -29,9 +29,7 @@ within minutes using with one command only - "vagrant up".
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
-  <details> <summary>requirements.sh:</summary> <ul>
-  - Default config.yaml configuration:
-  
+  <details> <summary>Default config.yaml configuration:</summary> <ul>
       4 CPU cores and 4GB RAM for Master, 2 CPU cores and 2GB RAM for worker nodes.
       IP of master node is 192.168.10.100, worker nodes are 192.168.10.2...192.168.10.3, etc....
       Nested Virtualization Vt-x/AMD-v Disabled.
