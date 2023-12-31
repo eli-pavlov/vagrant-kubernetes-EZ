@@ -95,7 +95,7 @@ Vagrant.configure(2) do |config|
 
 
 #######################################################################
-###               Create and configure the worker nodes, and join the cluster                     ###
+###               Create and configure the worker nodes and join the cluster                      ###
 #######################################################################
   # Kubernetes nodes
   if config_data['NodeCount'] >= 1
