@@ -39,7 +39,7 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 - Choice of Kubernetes networking plugins: Flannel, Weave or Cillium [default].
 - Option to Enable/Distable nested virtualization for guest VM's.
 - Quality of life features like:
-  Dynamic generation of guest VM's hosts file and hostnames.
+  Dynamic generation of guest VM's hosts file and hostnames.</br>
   for CKA practice - Kube user, kubectl "k" alias, etc...
 - All managed in a dynamic way from a single configuration file.
 
