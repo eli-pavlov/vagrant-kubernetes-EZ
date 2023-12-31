@@ -91,8 +91,8 @@ helm install wordpress helm-wordpress-mariadb
 Distributed under the Apache License 2.0 License.
 Please note that Kubernetes and Vagrant have their own respective licenses. 
 
-Kubernetes: https://kubernetes.io/
-Vagrant: https://www.vagrantup.com/
+Kubernetes: https://kubernetes.io
+Vagrant: https://www.vagrantup.com
 
 See LICENSE.txt for more information.
 
