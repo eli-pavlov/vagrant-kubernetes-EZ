@@ -1,6 +1,6 @@
 <div align='center'>
   
-<img src= "https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840" width=600 />
+<img src= "https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840.png" width=600 />
 
 <h1>Vagrant Kubernetes EZ</h1>
 <p>Easy deployment of Kubernetes with vagrant.</p>
