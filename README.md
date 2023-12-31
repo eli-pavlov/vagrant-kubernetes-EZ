@@ -13,7 +13,7 @@ $~~$
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-- [Prequisites](#space_invader-prequisites)
+- [Prequisites](#space_invader-tech-stack)
 - [Installation](#gear-installation)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
