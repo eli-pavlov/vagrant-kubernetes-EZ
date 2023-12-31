@@ -29,7 +29,7 @@ Create a customized Kubernetes cluster within minutes, using one command only - 
 This is not a "minkube" or "light" Kubernetes - but a fully featured "Kubeadm" install.
 
 After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to make </br> the process as automated, streamlined and effortless as possible. While there are many Vagrant boxes and repos out there,</br>
-the majority are outdated, and I could not find a deployment I could easily customize for my needs.
+the majority are outdated, and I could not find a deployment which I could easily customize for my needs.
 
 This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/) and others,</br>Bringing it up to date with latest OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
 
