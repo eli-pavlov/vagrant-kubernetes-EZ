@@ -2,7 +2,7 @@
 
 <img src= "[https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840 width=600]" />
 
-<h1>Helm Wordpress chart</h1>
+<h1>Vagrant Kubernetes "EZ" "New Year" release</h1>
 <p>A Helm chart for the deployment of "Wordpress" server with "MariaDB" database as a backend.</p>
 
 <h4> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Request Feature </a> </h4>
