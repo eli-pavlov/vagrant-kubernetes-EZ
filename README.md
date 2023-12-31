@@ -2,6 +2,7 @@
 
 <h1>Vagrant Kubernetes EZ</h1>
 <img src= "https://miro.medium.com/v2/resize:fit:720/format:webp/1*f1hLnqSswkvl8TVKMMjyFw.png" width=320 />
+$~$
 
 <p>Easy deployment of Kubernetes with vagrant.</p>
 
@@ -37,6 +38,7 @@ The purpose of this project is
     <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
+$~$
 - **/docs:** Directory containing media files.
 - **LICENSE.txt:** License file.
 - **README.md:** Readme file formatted for Github, with information about the chart.
@@ -49,10 +51,6 @@ Notes:
 
 $~$
 $~$
-
-$~$
-
-
 
 ### :space_invader: Tech Stack
 <details> <summary>Client</summary> <ul>
