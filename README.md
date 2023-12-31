@@ -90,7 +90,7 @@ https://git-scm.com/downloads
 
 ## :gear: Installation
 
-1. **Clone the repo:**
+1. **Clone this repository:**
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
