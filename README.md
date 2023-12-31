@@ -31,13 +31,13 @@ The purpose of this project is
 
 
   
-  <details> <summary>requirements.sh           -  Script to install required packages on all VM's</summary> <ul>
+  <details> <summary>requirements.sh:</summary> <ul>
   - Script to install required packages on all VM's.
   </ul> </details>
-    <details> <summary>master.sh               -  Configuration file to create a Persistent Volume for MySQL to store the working directory in a persistent way.</summary> <ul>
+    <details> <summary>master.sh:</summary> <ul>
   -  Configuration file to create a Persistent Volume for MySQL to store the working directory in a persistent way.
   </ul> </details>
-    <details> <summary>worker.sh                -  Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.</summary> <ul>
+    <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
 - **/docs:** Directory containing media files.
