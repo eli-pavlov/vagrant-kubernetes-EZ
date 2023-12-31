@@ -45,7 +45,12 @@ $~$
 
 ### Prerequisites
 
-1. **VirtualBox**
+1. **First - check Virtualization is Enabled in BIOS:**
+<img src= "https://i.stack.imgur.com/tNksn.jpg" width=320 />
+
+
+
+2. **VirtualBox**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
@@ -53,7 +58,7 @@ https://www.virtualbox.org/wiki/Downloads
 ```bash
 https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
 ```
-3. **GIT**
+4. **GIT**
 ```bash
 https://git-scm.com/downloads
 ```
