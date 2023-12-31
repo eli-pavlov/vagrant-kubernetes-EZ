@@ -85,11 +85,11 @@ $~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-3. **Set preffered cluster configuration in config.yaml**
+3. **Review config.yaml file**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-2. **Deploy the cluster using "vagrant up" command:**
+2. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
