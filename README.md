@@ -89,10 +89,10 @@ helm install wordpress helm-wordpress-mariadb
 ## :warning: License
 
 Distributed under the Apache License 2.0 License.
-Please note that this chart includes official WordPress and MariaDB images, which have their own respective licenses. 
+Please note that Kubernetes and Vagrant have their own respective licenses. 
 
-WordPress: https://hub.docker.com/_/wordpress  
-MariaDB: https://hub.docker.com/_/mariadb  
+Kubernetes: https://kubernetes.io/
+Vagrant: https://www.vagrantup.com/
 
 See LICENSE.txt for more information.
 
