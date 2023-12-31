@@ -1,6 +1,6 @@
 <div align='center'>
 
-<img src= "https://github.com/eli-pavlov/helm-wordpress-mariadb/blob/master/docs/logo.png" width=300 />
+<img src= "[https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840" width=600 />
 
 <h1>Helm Wordpress chart</h1>
 <p>A Helm chart for the deployment of "Wordpress" server with "MariaDB" database as a backend.</p>
