@@ -73,7 +73,7 @@ $~$
 ## :toolbox: Getting Started
 
 
-### Install Prerequisites
+### Prerequisites installed
 
 1. **VirtualBox:**
 ```bash
