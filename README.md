@@ -54,14 +54,14 @@ $~$
 $~$
 
 ### :space_invader: Tech Stack
-<details> <summary>Client</summary> <ul>
-<li><a href="https://wordpress.com/he/">WordPress</a></li>
+<details> <summary>VirtualBox</summary> <ul>
+<li><a href="https://www.virtualbox.org">VirtualBox</a></li>
 </ul> </details>
-<details> <summary>Server</summary> <ul>
-<li><a href="https://httpd.apache.org/">Apache</a></li>
+<details> <summary>Vagrant</summary> <ul>
+<li><a href="https://www.vagrantup.com">Vagrant</a></li>
 </ul> </details>
-<details> <summary>Database</summary> <ul>
-<li><a href="https://mariadb.org/">MariaDB</a></li>
+<details> <summary>Kubernetes</summary> <ul>
+<li><a href="https://kubernetes.io">Kubernetes</a></li>
 </ul> </details>
 
 ## :toolbox: Getting Started
@@ -105,7 +105,8 @@ Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ## :gem: Acknowledgements
 
 - [Kubernetes.io Documentation](https://kubernetes.io/docs)
-- [HashiCorp Vagrant](https://www.vagrantup.com/)
+- [Oracle VirtualBox](https://www.virtualbox.org)
+- [HashiCorp Vagrant](https://www.vagrantup.com)
 - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant)
 - [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu)
 - [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/)
