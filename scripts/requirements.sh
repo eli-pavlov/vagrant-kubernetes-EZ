@@ -8,33 +8,15 @@ sleep 2
 echo ""
 echo ""
 
-# Load variables from the YAML file
-echo ""
-echo "[TASK 1] Load variables from the YAML file"
-config_data=$(cat ../config.yaml | yq r -)
-echo "...done..."
 
-# Extract NodeCount
 echo ""
-echo "[TASK 2] Extract NodeCount"
-NodeCount=$(echo "${config_data}" | grep -E "NodeCount:" | awk '{print $2}')
-echo "...done..."
-
-# Update hosts file
-echo ""
-echo "[TASK 3] Update hosts file"
-echo "127.0.0.1 localhost" | tee /etc/hosts
-echo "${config_data}" | sed 's/: / /g' | tr -d '{}' | tr ',' '\n' | tr -d ' ' | while read line; do
-  ip=$(echo "${line}" | cut -d ' ' -f 1)
-  hostname=$(echo "${line}" | cut -d ' ' -f 2)
-  echo "${ip} ${hostname}" | tee -a /etc/hosts
-done
-echo "...done..."
+echo "[TASK 1] update hosts file"
+sudo cat /vagrant/scripts/hosts > /etc/hosts
 
 # install time synchronization server
 echo ""
 echo "[TASK 4] install time synchronization server"
-sudo apt update 
+sudo apt update
 sudo apt-get install ntp
 sudo apt-get install ntpdate
 sudo ntpdate ntp.ubuntu.com

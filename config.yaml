@@ -1,9 +1,9 @@
-###################################################
-#/// Define cluster configuration in this file ///#
-###################################################
+  #######################################################################
+  #///                                  Define cluster configuration in this file                                      ///#
+  #######################################################################
 
-# How many worker nodes to deploy in addition to the master node
-NodeCount: 2
+  # How many worker nodes to deploy in addition to the master node
+NodeCount: 1
 
 master:
   #######################################################################
@@ -17,8 +17,9 @@ master:
   master_virt: False                     # Enable/Disable nested virtualization on the master node
 
   #######################################################################
-  #                       set the internal kubernetes pod network CIDR                                       #
+  #                       set the internal Kubernetes pod Network plugin and  CIDR                       #
   #######################################################################
+  pod_network_plugin: Cilium              # Choose between Weave, Flannel or Cilium. Write without quotes.
   pod_network_cidr: "172.16.0.0/16"
 
 
@@ -37,5 +38,5 @@ worker:
   #                              Define IP address range for worker nodes                                          #
   #######################################################################
   ip_prefix: "192.168.10."                 # ip prefix for worker nodes
-  start_index: 2                           # starting ip address - e.x. 192.168.10.2
+  start_index: 101                          # starting ip address - e.x. 192.168.10.101
   count: <%= @NodeCount %>                 # do not change this line
