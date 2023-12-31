@@ -34,7 +34,7 @@ the majority are outdated, </br> and I could not find a deployment I could easil
 This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/), brings it up to date </br> with OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
 
 - Ability to define any number of additional storage drives for Master/Worker nodes.
-- Fully defined ip addreses and CIDR's.
+- Fully customized ip addreses and CIDR's.
 - Choice of Kubernetes networking plugin (Flannel, Calico or Cillium).
 - Option to Enable/Distable nested virtualization of guest VM's.
 - All managed in a dynamic way from a single configuration file.
