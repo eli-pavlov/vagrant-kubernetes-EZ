@@ -86,6 +86,9 @@ $~$
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
 3. **Verify settings in config.yaml file**
+```bash
+vim config.yaml ##//(or edit using your editor of choice)//##
+```
 2. **Install the chart using "Helm":**
 ```bash
 vagrant up
