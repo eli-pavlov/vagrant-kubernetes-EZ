@@ -22,32 +22,23 @@
 The purpose of this project is 
 
 
-## Chart architecture
+## Project files
 
-- **Chart.yaml:** Main chart file.
+- **Vagrantfile:** Main deployment file.
+- **config.yaml:** Main configuration file.
 - **LICENSE.txt:** License file.
 - **README.md:** Readme file formatted for Github, with information about the chart.
 - **/docs:** Directory containing media files.
-- **/templates:** Directory containing the chart templates. --> Press on the file names below for description.
-  <details> <summary>mysql-storage-class.yaml:</summary> <ul>
-  - Defining a storage class which will we will use for the creation and assignment of MySQL persistent volume.
+- **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
+  <details> <summary>requirements.sh:</summary> <ul>
+  - Script to install required packages on all VM's.
   </ul> </details>
-    <details> <summary>mysql-pv.yaml::</summary> <ul>
+    <details> <summary>master.sh:</summary> <ul>
   -  Configuration file to create a Persistent Volume for MySQL to store the working directory in a persistent way.
   </ul> </details>
-    <details> <summary>mysql-pvc.yaml:</summary> <ul>
+    <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
-    <details> <summary>mysql-configmap.yaml:</summary> <ul>
-  - ConfigMap to define variables for MySQL deployment in a dynamic rather than a static way.
-  </ul> </details>
-    <details> <summary>mysql-deployment.yaml:</summary> <ul>
-  - Main configuration file for the deployment of MySQL database as a micro-service in kubernetes.
-  </ul> </details>
-    <details> <summary>mysql-service.yaml:</summary>** <ul>
-  - Configuration file to create a ClusterIP service for MySQL depoyment, so Wordpress can find it and connect to it.
-  </ul> </details>
-
   ---
     **values.yaml:** Default configuration values for the Helm chart.
 
