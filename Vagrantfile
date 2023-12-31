@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
     file.puts 'ff02::1 ip6-allnodes'
     file.puts 'ff02::2 ip6-allrouters'
   end
-  config.vm.provision "file", source ./scripts/hosts, destination: "/tmp/scripts/hosts"
+  config.vm.provision "file", source: local_hosts_path, destination: "/tmp/scripts/hosts"
 
 #######################################################################
 ###Execute on each new VM the requirements.sh script, installing needed packages ###
