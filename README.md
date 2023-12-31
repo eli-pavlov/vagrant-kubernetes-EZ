@@ -87,7 +87,7 @@ vagrant up
 
 3. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
 
-
+$~~$
 ## :warning: License
 
 Distributed under the Apache License 2.0 License.
