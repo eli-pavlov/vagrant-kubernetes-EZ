@@ -26,10 +26,7 @@ The purpose of this project is
 
 - **Vagrantfile:** Main deployment file.
 - **config.yaml:** Main configuration file.
-- **LICENSE.txt:** License file.
-- **README.md:** Readme file formatted for Github, with information about the chart.
-- **/docs:** Directory containing media files.
-- **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
+- - **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
   <details> <summary>requirements.sh:</summary> <ul>
   - Script to install required packages on all VM's.
   </ul> </details>
@@ -39,6 +36,10 @@ The purpose of this project is
     <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
+- **LICENSE.txt:** License file.
+- **README.md:** Readme file formatted for Github, with information about the chart.
+- **/docs:** Directory containing media files.
+
 ---
 
 Notes:
