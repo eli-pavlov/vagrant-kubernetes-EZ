@@ -38,7 +38,7 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 - Define any number of additional storage drives for Master/Worker nodes.
 - Fully customized IP addreses and CIDR's.
 - Choice of Kubernetes networking plugins: Flannel, Weave or Cillium [default].
-- Option to Enable/Distable nested virtualization of guest VM's.
+- Option to Enable/Distable nested virtualization for guest VM's.
 - All managed in a dynamic way from a single configuration file.
 
 $~$
