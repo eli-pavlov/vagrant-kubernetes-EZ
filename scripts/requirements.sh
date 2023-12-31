@@ -11,7 +11,7 @@ echo ""
 
 echo ""
 echo "[TASK 1] update hosts file"
-sudo cat /vagrant/scripts/hosts > /etc/hosts
+sudo cat /tmp/scripts/hosts > /etc/hosts
 echo "...done..."
 
 # install time synchronization server

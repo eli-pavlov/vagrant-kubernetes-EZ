@@ -1,5 +1,5 @@
 #######################################################################
-#   This part loads config to dynamically generate scripts to be executed on VM's            #
+#   This part loads config to enable dynamically generate scripts to be executed on VM's #
 #######################################################################
 # Explicitly require the YAML module
 require 'yaml'
@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: local_script_path, destination: "/tmp/scripts/kube_init_script.sh"
 
 #######################################################################
-###                                     Generate the /etc/hosts file                                                  ###
+###                  Generate the /etc/hosts file to be deployed on every node                     ###
 #######################################################################
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses

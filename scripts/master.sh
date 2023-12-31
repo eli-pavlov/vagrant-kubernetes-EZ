@@ -9,7 +9,7 @@ echo "##################################"
 sleep 2
 echo ""
 echo ""
-sudo bash /tmp/kube_init_script.sh
+sudo bash /tmp/scripts/kube_init_script.sh
 echo "...done..."
 
 # Generate Cluster join command
