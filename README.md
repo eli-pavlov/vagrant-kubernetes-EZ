@@ -31,7 +31,7 @@ Creating customized Kubernetes cluster within minutes using one command only - "
 After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to make </br> the process as easy and effortless as possible. While there are many Vagrant boxes and repos out there, 
 the majority are outdated, </br> and I could not find a deployment I could easily customize for my needs.
 
-This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/) and others.</br>Brings it up to date with OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
+This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/) and other,</br>Bringing it up to date with OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
 
 - Define any number of additional storage drives for Master/Worker nodes.
 - Fully customized IP addreses and CIDR's.
