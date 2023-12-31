@@ -13,7 +13,7 @@ $~~$
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-- [Prerequisites](#toolbox-getting-started)
+- [Prerequisites](#cat-getting-started)
 - [Installation](#gear-installation)
 - [Project Files](#open_file_folder-files)
 - [License](#warning-license)
@@ -30,7 +30,7 @@ Create customized Kubernetes cluster within minutes using with one command only 
 
 
 $~$
-## :toolbox: Getting Started
+## :cat: Getting Started
 
 
 ### Prerequisites
