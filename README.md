@@ -86,7 +86,7 @@ https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
 ```bash
 https://git-scm.com/downloads
 ```
-
+$~~~$
 
 ## :gear: Installation
 
@@ -105,7 +105,7 @@ vagrant up
 3. **Check cluster:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
-```$~~$
+```
 
 ## :warning: License
 
