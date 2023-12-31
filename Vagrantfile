@@ -1,3 +1,6 @@
+#######################################################################
+#   This part loads config to dynamically generate scripts to be executed on VM's            #
+#######################################################################
 # Explicitly require the YAML module
 require 'yaml'
 
@@ -5,8 +8,10 @@ Vagrant.configure(2) do |config|
   # Load the configuration data from the YAML file
   config_data = YAML.load_file('config.yaml')
 
-  ### Generate the kubeadm init command with configured IP addresses ###
-  ############################################################
+#######################################################################
+###        Generate the kubeadm init command with pre-configured IP addresses         ###
+#######################################################################
+
   local_script_path = "./scripts/kube_init_script.sh"
   File.open(local_script_path, 'w') do |file|
     file.puts "#!/bin/bash"
@@ -15,10 +20,11 @@ Vagrant.configure(2) do |config|
   end
 
   # Transfer the dynamically generated script to the master VM
-  config.vm.provision "file", source: local_script_path, destination: "/tmp/kube_init_script.sh"
+  config.vm.provision "file", source: local_script_path, destination: "/tmp/scripts/kube_init_script.sh"
 
-  ###  Generate hosts file  ####
-  ########################
+#######################################################################
+###                                     Generate the /etc/hosts file                                                  ###
+#######################################################################
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
   File.open(local_hosts_path, 'w') do |file|
@@ -42,13 +48,21 @@ Vagrant.configure(2) do |config|
     file.puts 'ff02::1 ip6-allnodes'
     file.puts 'ff02::2 ip6-allrouters'
   end
-  ###########################
+  config.vm.provision "file", source ./scripts/hosts, destination: "/tmp/scripts/hosts"
+
+#######################################################################
+###Execute on each new VM the requirements.sh script, installing needed packages ###
+#######################################################################
 
   # Define the amount of time given to the machine to complete reboot
   config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
 
   # Execute on each new machine the requirements.sh script
   config.vm.provision "shell", path: "./scripts/requirements.sh", args: config_data['NodeCount']
+
+#######################################################################
+###          Create and configure the Master node, and deploy the cluster                      ###
+#######################################################################
 
   # Kubernetes Master
   config.vm.define "master" do |master|
@@ -79,6 +93,10 @@ Vagrant.configure(2) do |config|
     master.vm.box_download_insecure = true
   end
 
+
+#######################################################################
+###               Create and configure the worker nodes, and join the cluster                     ###
+#######################################################################
   # Kubernetes nodes
   if config_data['NodeCount'] >= 1
     (1..config_data['NodeCount']).each do |i|

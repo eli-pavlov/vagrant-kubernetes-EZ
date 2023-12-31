@@ -14,7 +14,7 @@ master:
   master_ip: "192.168.10.100"            # ip of the master node guest VM machine
   additional_storage_drives: 0           # How many additional storage drives the machine should have
   storage_drives_size: 80                # What is the size of each additional storage drive in GB
-  master_virt: False                     # Enable/Disable nested virtualization on the master node
+  master_virt: False                         # Enable/Disable nested virtualization on the master node
 
   #######################################################################
   #                       set the internal Kubernetes pod Network plugin and  CIDR                       #

@@ -31,6 +31,7 @@ echo "...done..."
 
 echo "[TASK 4] Install Pod Networking plugin"
 pod_network_plugin=$(cat /vagrant/config.yaml | grep "pod_network_plugin" | awk '{print $2}')
+echo "$pod_network_plugin Networking plugin selected"
 if [ "$pod_network_plugin" == "Flannel" ]; then
     echo "Installing Flannel network plugin"
      su - vagrant -c "kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml"

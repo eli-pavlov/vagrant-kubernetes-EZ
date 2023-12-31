@@ -1,6 +1,7 @@
 .vagrant
 joincluster.sh
 kube_init_script.sh
-
+hosts
 scripts/joincluster.sh
 scripts/kube_init_script.sh
+scripts/hosts

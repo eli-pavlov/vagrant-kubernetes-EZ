@@ -12,6 +12,7 @@ echo ""
 echo ""
 echo "[TASK 1] update hosts file"
 sudo cat /vagrant/scripts/hosts > /etc/hosts
+echo "...done..."
 
 # install time synchronization server
 echo ""
@@ -32,6 +33,7 @@ EOF
 
 sudo modprobe overlay
 sudo modprobe br_netfilter
+echo "...done..."
 
 # sysctl params required by setup, params persist across reboots
 echo ""
@@ -91,6 +93,7 @@ sudo systemctl restart containerd
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
+echo "...done..."
 
 # Add Kubernetes repository:
 echo ""
