@@ -2,7 +2,6 @@
 
 <h1>Vagrant Kubernetes EZ</h1>
 <img src= "https://miro.medium.com/v2/resize:fit:720/format:webp/1*f1hLnqSswkvl8TVKMMjyFw.png" width=320 />
-$~$
 
 <p>Easy deployment of Kubernetes with vagrant.</p>
 
