@@ -29,7 +29,6 @@ The purpose of this project is
 - **LICENSE.txt:** License file.
 - **README.md:** Readme file formatted for Github, with information about the chart.
 - **/docs:** Directory containing media files.
----
 - **/scripts:** Directory containing the chart templates. --> Press on the file names below for description.
   <details> <summary>requirements.sh:</summary> <ul>
   - Script to install required packages on all VM's.
