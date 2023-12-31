@@ -45,7 +45,7 @@ $~$
 
 ### Prerequisites
 
-1. **VirtualBox  (VErify CPU Virtualization is Enabled in BIOS)**
+1. **VirtualBox  (Check CPU Virtualization is Enabled in BIOS)**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
