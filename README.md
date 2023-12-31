@@ -15,7 +15,7 @@ $~~$
 - [About the Project](#star2-about-the-project)
 - [Prequisites](#toolbox-getting-started)
 - [Installation](#gear-installation)
-- [Project Files](#file-files)
+- [Project Files](#open_file_folder-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
