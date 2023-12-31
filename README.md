@@ -1,8 +1,8 @@
 <div align='center'>
 
-<h1>Vagrant Kubernetes EZ</h1>
+<h1>Vagrant Kubernetes EZ
 <img src= "https://miro.medium.com/v2/resize:fit:720/format:webp/1*f1hLnqSswkvl8TVKMMjyFw.png" width=320 />
-
+</h1>
 
 <p>Easy deployment of Kubernetes with vagrant.</p>
 
