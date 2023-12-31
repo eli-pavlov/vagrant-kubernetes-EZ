@@ -1,11 +1,11 @@
 <div align='center'>
-
-<img src= "[https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840 width=600]" />
+  
+<img src= "https://blog.devops.dev/how-to-setup-kubernetes-cluster-with-vagrant-e2c808795840" width=600 />
 
 <h1>Vagrant Kubernetes EZ</h1>
 <p>Easy deployment of Kubernetes with vagrant.</p>
 
-<h4> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Request Feature </a> </h4>
+<h4> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/issues"> Request Feature </a> </h4>
 
 
 </div>
@@ -19,10 +19,7 @@
 
 
 ## :star2: About the Project
-The purpose of this project is to deploy a Wordpress server in the cloud as a microservice
-in an easy and automated way. It is not intended to be used in production environment since 
-many features like security, high availablity and scaling are absent in this release. 
-However it is a perfect base for a start or as a personal project.
+The purpose of this project is 
 
 
 ## Chart architecture
