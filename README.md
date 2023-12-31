@@ -10,6 +10,7 @@
 $~~$
 
 </div>
+<div>
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
@@ -19,7 +20,7 @@ $~~$
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
 
-<div></div>
+</div>
 
 ## :star2: About the Project
 The purpose of this project is do deploy a fully functional Kubernetes cluster on a single machine using VirtualBox and Vagrant, $~$ 
