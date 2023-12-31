@@ -71,7 +71,7 @@ $~$
 </ul> </details>
 
 ## :toolbox: Getting Started
-$~~~$
+$~~$
 ### :bangbang: Prerequisites
 
 
@@ -103,7 +103,7 @@ vim config.yaml ##//(or edit using your editor of choice)//##
 ```bash
 vagrant up
 ```
-3. **Check cluster:**
+3. **Check successful deployment of the cluster:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
