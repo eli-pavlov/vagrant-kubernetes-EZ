@@ -110,7 +110,7 @@ Eli Pavlov - www.weblightenment.com - admin@weblightenment.com
 Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 $~$
 
-## :gem: Acknowledgements
+## :gem: Acknowledgements and thanks to:
 - [Canonical Ubuntu](https://ubuntu.com/community/governance/canonical)
 - [Kubernetes.io](https://kubernetes.io/docs)
 - [Oracle VirtualBox](https://www.virtualbox.org)
