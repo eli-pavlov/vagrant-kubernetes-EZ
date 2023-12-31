@@ -47,15 +47,15 @@ $~$
 ### Prerequisites
 
 1. **Check Virtualization is Enabled in BIOS:**
-<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/VT-x.jpg?raw=true" width=900 />
+<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/VT-x.jpg?raw=true" width=600 />
 
 In AMD machines the feature is called SVM
 
-<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/SVM.jpg?raw=true" width=900 />
+<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/SVM.jpg?raw=true" width=600 />
 
 It is also a good practice to disable Windows HyperV when using VirtualBox:
 
-<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=900 />
+<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=600 />
 
 3. **Install VirtualBox**
 ```bash
@@ -81,7 +81,7 @@ git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/7ba322e707c2e29eaf93f380c86f6a68677c6e51/docs/config.JPG" width=900 />
+<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/7ba322e707c2e29eaf93f380c86f6a68677c6e51/docs/config.JPG" width=600 />
 
 3. **Deploy the cluster:**
 ```bash
