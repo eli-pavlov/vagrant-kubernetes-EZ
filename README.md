@@ -26,7 +26,7 @@ $~~$
 
 ## :star2: About the Project
 The purpose of this project is do deploy a fully functional Kubernetes cluster using VirtualBox and Vagrant. </br>
-Create completely customized Kubernetes cluster within minutes on your machine with one command only - "vagrant up".
+Create  customized Kubernetes cluster within minutes on your machine with one command only - "vagrant up".
 
 
 
