@@ -73,18 +73,16 @@ Notes:
 
 1. **Clone the repo:**
 ```bash
-git clone https://github.com/eli-pavlov/helm-wordpress-mariadb.git
+git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
+3. **Verify settings in config.yaml file**
 2. **Install the chart using "Helm":**
 ```bash
-helm install wordpress helm-wordpress-mariadb
+vagrant up
 ```
 
 3. **Add an "A" record in the hosted zone pointing to "Alias" of the "wordpress" LoadBalancer service.**
 
-4. **Login to "Wordpress" and create your website.**
-
-5. **Enjoy!!!**
 
 ## :warning: License
 
