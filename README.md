@@ -1,6 +1,6 @@
 <div align='center'>
 <img src= "https://miro.medium.com/v2/resize:fit:720/format:webp/1*f1hLnqSswkvl8TVKMMjyFw.png" width=320 />
-<h1>Kubernetes Vagrant EZ</h1>
+<h1>Vagrant Kuberentes EZ</h1>
  
 <p> Easy deploy Kubernetes with Vagrant</p>
 
