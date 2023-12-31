@@ -37,7 +37,6 @@ The purpose of this project is
     <details> <summary>worker.sh:</summary> <ul>
   - Configuration file to create a Persistent Volume Claim for MySQL, to claim the created above Persistent Volume.
   </ul> </details>
-$~$
 - **/docs:** Directory containing media files.
 - **LICENSE.txt:** License file.
 - **README.md:** Readme file formatted for Github, with information about the chart.
