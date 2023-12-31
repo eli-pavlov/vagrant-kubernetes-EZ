@@ -15,7 +15,7 @@ echo "...done..."
 echo ""
 echo "===================================="
 echo 'run command: vagrant ssh master -c "kubectl get nodes -o wide"'
-echo 'Or'
+echo 'or'
 echo 'run command: "vagrant ssh master", to ssh into the master node'
 echo "===================================="
 echo ""
