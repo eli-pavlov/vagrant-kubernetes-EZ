@@ -50,7 +50,6 @@ Vagrant.configure(2) do |config|
   end
   # Transfer the dynamically generated hosts file to VM's.
   config.vm.provision "file", source: local_hosts_path, destination: "/tmp/scripts/hosts"
-
 #######################################################################
 ##        Execute on each new VM the requirements.sh script          ##
 #######################################################################
