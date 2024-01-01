@@ -125,7 +125,6 @@ the VM. </br>
 
 
 IMPORTANT! "Host-Only" adapter's IP address should always match the addresses defined in config.yaml file.</br>
-You can change these values to suit your environment.</br>
 
 
 File -> Tools -> Network Manager -> Create
