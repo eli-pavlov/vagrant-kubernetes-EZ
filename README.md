@@ -108,7 +108,7 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 https://www.virtualbox.org/wiki/Downloads
 ```
 
-Verify there are 2 network adapters defined, "Host-Only" for host and cluster internal communication.</br> 
+Verify there are 2 network adapters defined in VirtualBox, "Host-Only" for host and cluster internal communication.</br> 
 And one for access to the internet - "NAT" adapter.</br>
 
 
@@ -134,7 +134,7 @@ DHCP Server:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG" width=450 /></br>
 
 
-Create "NAT" Network adapter with the name of "NatNetwork", and any IP address.</br>
+Check NAT network adapter is present.</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adaper2a.JPG" width=450 /></br>
 
 
