@@ -82,7 +82,7 @@ DHCP Server:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG" width=450 /></br>
 
 
-Create "NAT" Network adapter with the name of NatNetwork and any IP.
+Create "NAT" Network adapter with the name of NatNetwork and any IP.</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adaper2a.JPG" width=450 /></br>
 
 
