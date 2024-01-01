@@ -27,7 +27,7 @@ $~~$
 ## :star2: About the Project
 
 After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to simplify the process. While there are many Vagrant sources out there,
-I just could not fined a deployment that would be up-to-date with present openstack versions, and which I could easily customize for my needs.
+I just could not fined a deployment that would be current enough, and which I could easily customize for my needs.
 
 The purpose of this project is to deploy a fully functional Kubernetes cluster on a single machine within minutes, using one command only - "vagrant up".
 This is not a "minkube" or "light" Kubernetes - but a fully featured "Kubeadm" install.
