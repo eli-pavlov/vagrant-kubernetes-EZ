@@ -53,6 +53,7 @@ $~$
 - Vagrant
 - GIT
 
+---
 
 1. **Check Virtualization is Enabled in BIOS:**
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/VT-x.jpg?raw=true" width=450 />
