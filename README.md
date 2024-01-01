@@ -26,8 +26,6 @@ $~~$
 
 ## :star2: About the Project
 
-"For every two minutes of glamour, there are eight hours of hard work.  - Jessica Savitch"
-
 After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to make the process as automated, streamlined and effortless as possible. While there are many Vagrant sources out there,
 I just could not fined a deployment that would be current enough, and which I could easily customize for my needs.
 
