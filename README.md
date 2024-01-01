@@ -70,7 +70,8 @@ and one for access to the internet (NAT).
 
 Create "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
 DHCP server address 192.168.10.2 and address bound from 192.168.10.3</br>
-to 192.168.10.254
+to 192.168.10.254 The adapter with the cluster IP address should be at the top</br>
+in the list.
 
 File -> Tools -> Network Manager -> Create
 
