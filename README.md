@@ -96,7 +96,7 @@ vagrant ssh master -c "kubectl get nodes -o wide"
 ```
 5. **or SSH into the Master node by typing:**
 ```bash
-"vagrant ssh master"
+vagrant ssh master
 ```
 
 $~$
