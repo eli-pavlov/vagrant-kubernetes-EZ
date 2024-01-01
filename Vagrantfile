@@ -95,7 +95,6 @@ Vagrant.configure(2) do |config|
     master.vm.box_download_insecure = true
   end
 
-
 #######################################################################
 ###   Create and configure the worker nodes and join the cluster    ###
 #######################################################################
