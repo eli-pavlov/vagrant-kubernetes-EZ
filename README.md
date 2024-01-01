@@ -109,7 +109,7 @@ https://www.virtualbox.org/wiki/Downloads
 ```
 
 Verify there are 2 network adapters defined in VirtualBox, "Host-Only" for host and cluster</br> internal communication.
-And one for access to the internet - "NAT" adapter.</br>
+And "NAT" adapter for access to the internet.</br>
 
 
 Configure "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
