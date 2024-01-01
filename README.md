@@ -12,6 +12,7 @@ $~~$
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
+- [TL;DR](#rocket-tl;dr)
 - [Prerequisites](#toolbox-getting-started)
 - [Installation](#gear-installation)
 - [Project Files](#open_file_folder-files)
