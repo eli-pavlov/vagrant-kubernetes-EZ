@@ -48,6 +48,7 @@ Vagrant.configure(2) do |config|
     file.puts 'ff02::1 ip6-allnodes'
     file.puts 'ff02::2 ip6-allrouters'
   end
+  # Transfer the dynamically generated hosts file to VM's.
   config.vm.provision "file", source: local_hosts_path, destination: "/tmp/scripts/hosts"
 
 #######################################################################
