@@ -30,7 +30,7 @@ After having to go through the process of creating Kubernetes clusters multiple 
 I just could not fined a deployment that would be current enough, and which I could easily customize for my needs.
 
 The purpose of this project is to deploy a fully functional Kubernetes cluster on a single machine within minutes, using one command only - "vagrant up".
-This is not a "minkube" or "light" Kubernetes - but a fully featured "Kubeadm" install.
+This is not a "minkube" or "light" Kubernetes - but a fully featured "Kubeadm" install.</br>
 Vagrant does not provide just the Kubernetes cluster - it provides and configures all the underlaying infrastructure and Virtual Machines as well.
 This makes simulation of complex environments on just one machine a breeze.
 
