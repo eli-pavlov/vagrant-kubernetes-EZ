@@ -49,33 +49,29 @@ $~$
 ## :rocket: TL;DR
 
 
-1. **Install VirtualBox**
+- [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads)
 
-[VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
 
-2. **Install Vagrant**
-[Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
+- [**Install GIT**](https://git-scm.com/downloads)
 
-4. **Install GIT**
-[GIT](https://git-scm.com/downloads)
-
-5. **Clone this repository:**
+1. **Clone this repository:**
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-5. **Review config.yaml file:**
+2. **Review config.yaml file:**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-6. **Deploy the cluster:**
+3. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
-7. **Check cluster state:**
+4. **Check cluster state:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
-8. **or SSH into the Master node by typing:**
+5. **or SSH into the Master node by typing:**
 ```bash
 vagrant ssh master
 ```
