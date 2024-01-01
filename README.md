@@ -66,7 +66,7 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=450 />
 
-3. **Install VirtualBox**
+2. **Install VirtualBox**
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
