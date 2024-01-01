@@ -21,7 +21,6 @@ Vagrant.configure(2) do |config|
 
   # Transfer the dynamically generated script to guest VM
   config.vm.provision "file", source: local_script_path, destination: "/tmp/scripts/kube_init_script.sh"
-
 #######################################################################
 ###  Generate the /etc/hosts file to be deployed on every node      ###
 #######################################################################
