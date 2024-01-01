@@ -118,7 +118,7 @@ to 192.168.10.254.</br>
 
 
 The adapter with the cluster IP address should be at the top of the list,</br>
-because the top adapter is always selected as the main Network adapter for</br>
+because the top adapter is always selected as the main Network adapter for
 the VM. </br>
 
 
