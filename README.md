@@ -81,11 +81,7 @@ vagrant ssh master
 ```
 or
 ```bash
-ssh vagrant@192.168.10.100   # password: "vagrant"
-```
-or
-```bash
-ssh kube@192.168.10.100   # password: "kube"
+ssh vagrant@192.168.10.100 -i .vagrant\machines\master\virtualbox\private_key # This location of the private key of master node on the host machine is : <PROJECT_FOLDER>/.vagrant\machines\master\virtualbox\private_key
 ```
 $~$
 
