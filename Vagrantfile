@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
     file.puts "sudo kubeadm init --apiserver-advertise-address=#{config_data['master']['master_ip']} --pod-network-cidr=#{config_data['master']['pod_network_cidr']} >> kubeinit.log 2>/dev/null"
   end
 
-  # Transfer the dynamically generated script to the master VM
+  # Transfer the dynamically generated script to guest VM
   config.vm.provision "file", source: local_script_path, destination: "/tmp/scripts/kube_init_script.sh"
 
 #######################################################################
