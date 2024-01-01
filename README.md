@@ -79,7 +79,14 @@ vagrant ssh master -c "kubectl get nodes -o wide"
 ```bash
 vagrant ssh master
 ```
-
+or
+```bash
+ssh vagrant@192.168.10.100   # password: "vagrant"
+```
+or
+```bash
+ssh kube@192.168.10.100   # password: "kube"
+```
 $~$
 
 ## :toolbox: Getting Started
