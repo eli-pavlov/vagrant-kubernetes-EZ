@@ -109,7 +109,7 @@ Verify there are 2 network adapters defined, "Host-Only" for host and cluster in
 And one for access to the internet - "NAT" adapter.</br>
 
 
-Create "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
+Configure "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
 DHCP server address 192.168.10.2 and address boundaries from 192.168.10.3</br>
 to 192.168.10.254.</br?
 
