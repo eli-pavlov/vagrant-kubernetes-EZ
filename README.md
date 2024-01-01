@@ -44,6 +44,47 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 - All managed in a dynamic way from a single configuration file.
 
 $~$
+
+
+## :rocket: TL;DR
+
+
+1. **Install VirtualBox**
+```bash
+https://www.virtualbox.org/wiki/Downloads
+```
+2. **Install Vagrant**
+```bash
+https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
+```
+3. **Install GIT**
+```bash
+https://git-scm.com/downloads
+```
+
+4. **Clone this repository:**
+```bash
+git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+```
+5. **Review config.yaml file:**
+```bash
+vim config.yaml ##//(or edit using your editor of choice)//##
+```
+6. **Deploy the cluster:**
+```bash
+vagrant up
+```
+7. **Check cluster state:**
+```bash
+vagrant ssh master -c "kubectl get nodes -o wide"
+```
+8. **or SSH into the Master node by typing:**
+```bash
+vagrant ssh master
+```
+
+$~$
+
 ## :toolbox: Getting Started
 
 
