@@ -50,19 +50,16 @@ $~$
 
 
 1. **Install VirtualBox**
-```bash
-https://www.virtualbox.org/wiki/Downloads
-```
-2. **Install Vagrant**
-```bash
-https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
-```
-3. **Install GIT**
-```bash
-https://git-scm.com/downloads
-```
 
-4. **Clone this repository:**
+[VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+2. **Install Vagrant**
+[Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
+
+4. **Install GIT**
+[GIT](https://git-scm.com/downloads)
+
+5. **Clone this repository:**
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
