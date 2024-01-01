@@ -64,6 +64,22 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
+Create "Host Only" Network adapter with ip adress of 192.168.10.1,
+DHCP server address 192.168.10.2 and address bound from 192.168.10.3
+to 192.168.10.254
+
+File -> Tools -> Network Manager -> Create
+
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1a.JPG" width=450 />
+
+DHCP Server:
+https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG" width=450 />
+
+Create "NAT" Network adapter with the name of NatNetwork and any IP.
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adaper2a.JPG" width=450 />
+
+
 3. **Install Vagrant**
 ```bash
 https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
