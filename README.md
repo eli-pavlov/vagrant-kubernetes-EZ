@@ -174,7 +174,7 @@ vagrant ssh master -c "kubectl get nodes -o wide"
 ```bash
 vagrant ssh master
 ```
-6. **To delete the cluster and revert any changes to host machine:**
+6. **To delete the cluster and revert any changes made to host machine:**
 ```bash
 vagrant destroy -f
 ```
