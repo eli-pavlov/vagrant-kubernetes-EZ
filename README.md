@@ -26,7 +26,7 @@ $~~$
 
 ## :star2: About the Project
 
-All the good things in life are simple.......till you have to install Kubernetes.
+All the good things in life are simple.......Or so you jave been thinking, till you have to install Kubernetes.
 
 After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to simplify the process. While there are many Vagrant sources out there,
 I just could not find a deployment that would be current enough, and which I could easily customize for my needs.
