@@ -49,7 +49,7 @@ $~$
 
 ### Prerequisites
 
-- VirtualBox with 2 network adapters defined
+- VirtualBox with 2 network adapters
 - Vagrant
 - GIT
 
