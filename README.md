@@ -75,9 +75,10 @@ in the list.
 
 File -> Tools -> Network Manager -> Create
 
-<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1a.JPG" width=450 />
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1a.JPG" width=450 /></br>
 
-DHCP Server:
+
+DHCP Server:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG" width=450 />
 
 Create "NAT" Network adapter with the name of NatNetwork and any IP.
