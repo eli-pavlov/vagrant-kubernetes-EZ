@@ -68,7 +68,7 @@ Verify there are 2 network adapters defined, "Host-Only" for host and cluster in
 And one for access to the internet - "NAT" adapter.</br>
 
 
-"Host-Only" adapter's IP address should match the addresses defined in config.yaml file.</br>
+## "Host-Only" adapter's IP address should match the addresses defined in config.yaml file. ##</br>
 
 
 Create "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
