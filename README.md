@@ -130,11 +130,11 @@ File -> Tools -> Network Manager -> Create
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1a.JPG" width=450 /></br>
 
 
-Configure DHCP Server of "Host-Only" adapter.:</br>
+Configure DHCP Server of "Host-Only" adapter:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adapter1b.JPG" width=450 /></br>
 
 
-Check NAT network adapter is present.</br>
+Check NAT network adapter is present:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adaper2a.JPG" width=450 /></br>
 
 
