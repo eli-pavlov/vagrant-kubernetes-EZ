@@ -140,7 +140,7 @@ $~$
 
 Eli Pavlov - www.weblightenment.com - admin@weblightenment.com
 
-Project Link: https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+Project Link: https://github.com/eli-pavlov/vagrant-kubernetes-EZ.git
 $~$
 
 ## :gem: Acknowledgements and thanks to:
