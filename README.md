@@ -55,7 +55,7 @@ $~$
 ## :rocket: TL;DR
 
 
-- [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads) - and add a "Host-Only" Network Interface with 192.168.10.1 ip.
+- [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads) - and add a "Host-Only" Network Interface with ip 192.168.10.1
 
 - [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
 
