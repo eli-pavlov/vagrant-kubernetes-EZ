@@ -26,7 +26,7 @@ $~~$
 
 ## :star2: About the Project
 
-After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to simplify things. While there are many Vagrant sources out there,
+After having to go through the process of creating Kubernetes clusters multiple times on my machine, I wanted to simplify the process. While there are many Vagrant sources out there,
 I just could not fined a deployment that would be current enough, and which I could easily customize for my needs.
 
 The purpose of this project is to deploy a fully functional Kubernetes cluster on a single machine, using VirtualBox and Vagrant.
