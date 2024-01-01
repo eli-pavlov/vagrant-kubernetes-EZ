@@ -14,13 +14,13 @@ master:
   master_ip: "192.168.10.100"            # ip of the master node guest VM machine
   additional_storage_drives: 0           # How many additional storage drives the machine should have
   storage_drives_size: 80                # What is the size of each additional storage drive in GB
-  master_virt: False                         # Enable/Disable nested virtualization on the master node
+  master_virt: False                     # Enable/Disable nested virtualization on the master node
 
   #######################################################################
   #     set the internal Kubernetes pod Network plugin and  CIDR        #
   #######################################################################
   pod_network_plugin: Cilium              # Choose between Weave, Flannel or Cilium. Write without quotes.
-  pod_network_cidr: "10.244.0.0/16"     # This is the default Flannel CIDR. Works great also with the rest.
+  pod_network_cidr: "10.244.0.0/16"       # This is the default Flannel CIDR. Works great also with the rest.
 
 
 worker:
@@ -38,5 +38,5 @@ worker:
   #            Define IP address range for worker nodes                 #
   #######################################################################
   ip_prefix: "192.168.10."                 # ip prefix for worker nodes
-  start_index: 101                          # starting ip address - e.x. 192.168.10.101
+  start_index: 101                         # starting ip address - e.x. 192.168.10.101
   count: <%= @NodeCount %>                 # do not change this line
