@@ -80,7 +80,7 @@ $~~~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-3. **Review config.yaml file:**
+2. **Review config.yaml file:**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
@@ -90,7 +90,7 @@ vim config.yaml ##//(or edit using your editor of choice)//##
 ```bash
 vagrant up
 ```
-3. **Check cluster state:**
+4. **Check cluster state:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
