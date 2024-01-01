@@ -64,8 +64,8 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 ```bash
 https://www.virtualbox.org/wiki/Downloads
 ```
-Verify there are 2 network adapters, "Host-Only" for internal communication,</br>
-between the host machine and the cluster, and inter-cluster comms .</br>
+Verify there are 2 network adapters, "Host-Only" for host and cluster</br>
+internal communication.</br> 
 And one for access to the internet - "NAT" adapter.</br>
 
 
