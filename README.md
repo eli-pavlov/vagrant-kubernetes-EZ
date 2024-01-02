@@ -48,7 +48,9 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 - All managed in a dynamic way from a single configuration file.
 
 $~~$
+
 This is not a PRODUCTION SETUP, it's aim is to simulate a full scale multi-node cluster at home for development and studies.
+
 $~$
 
 
