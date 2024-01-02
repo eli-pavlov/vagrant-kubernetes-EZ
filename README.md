@@ -67,19 +67,23 @@ $~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-2. **Review config.yaml file:**
+2. **Enter into the cloned directory:**
+```bash
+cd vagrant-kubernetes-EZ
+```
+3. **Review config.yaml file:**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-3. **Deploy the cluster:**
+4. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
-4. **Check cluster state:**
+5. **Check cluster state:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
-5. **SSH (connect) to Master node by typing:**
+6. **SSH (connect) to Master node by typing:**
 ```bash
 vagrant ssh master
 ```
