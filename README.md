@@ -57,7 +57,7 @@ $~$
 ## :rocket: TL;DR
 
 
-- [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads) - and add a "Host-Only" Network Interface with ip 192.168.10.1
+- [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads) - and add a "Host-Only" Network Interface with ip 192.168.56.1
 
 - [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)   - and add vagrant to vboxusers group (on Linux only).
 ```bash
@@ -96,7 +96,7 @@ vagrant ssh master
 ```
 or
 ```bash
-ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
+ssh vagrant@192.168.56.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
 ```
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key
 
@@ -136,9 +136,9 @@ Verify there are at least 2 virtual network adapters defined in VirtualBox, "Hos
 And "NAT" adapter for access to the internet.</br>
 
 
-Configure "Host Only" Network adapter with ip adress of 192.168.10.1,</br>
-DHCP server address 192.168.10.2 and address boundaries from 192.168.10.3</br>
-to 192.168.10.254.</br>
+Configure "Host Only" Network adapter with ip adress of 192.168.56.1,</br>
+DHCP server address 192.168.56.2 and address boundaries from 192.168.56.3</br>
+to 192.168.56.254.</br>
 
 
 The adapter with the cluster IP address should be at the top of the list,</br>
@@ -202,7 +202,7 @@ vagrant ssh master
 ```
 or
 ```bash
-ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
+ssh vagrant@192.168.56.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
 ```
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key</br>
 $~$
