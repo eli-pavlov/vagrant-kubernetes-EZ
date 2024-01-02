@@ -65,6 +65,7 @@ sudo chmod -aG vboxusers vagrant
 ```
 
 - [**Install GIT**](https://git-scm.com/downloads)
+$~~$
 
 
 1. **Clone this repository:**
