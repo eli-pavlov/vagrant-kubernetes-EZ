@@ -186,7 +186,7 @@ cd vagrant-kubernetes-EZ
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
-<img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/7ba322e707c2e29eaf93f380c86f6a68677c6e51/docs/config.JPG" width=450 />
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/8cf5b26f787141be6011be61af5a801330434e35/docs/config.JPG" width=450 />
 
 4. **Deploy the cluster:**
 ```bash
