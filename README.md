@@ -67,7 +67,7 @@ $~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-2. **Enter into the cloned directory:**
+2. **Enter the project directory:**
 ```bash
 cd vagrant-kubernetes-EZ
 ```
@@ -93,6 +93,10 @@ ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #L
 ```
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key
 
+7. **To delete the cluster and revert any changes made to host machine:**
+```bash
+vagrant destroy -f
+```
 
 $~$
 
@@ -170,21 +174,25 @@ $~~~$
 ```bash
 git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
 ```
-2. **Review config.yaml file:**
+2. **Enter the project directory:**
+```bash
+cd vagrant-kubernetes-EZ
+```
+3. **Review config.yaml file:**
 ```bash
 vim config.yaml ##//(or edit using your editor of choice)//##
 ```
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/7ba322e707c2e29eaf93f380c86f6a68677c6e51/docs/config.JPG" width=450 />
 
-3. **Deploy the cluster:**
+4. **Deploy the cluster:**
 ```bash
 vagrant up
 ```
-4. **Check cluster state:**
+5. **Check cluster state:**
 ```bash
 vagrant ssh master -c "kubectl get nodes -o wide"
 ```
-5. **SSH (connect) to the Master node by typing:**
+6. **SSH (connect) to the Master node by typing:**
 ```bash
 vagrant ssh master
 ```
@@ -195,7 +203,7 @@ ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #L
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key</br>
 $~$
 
-6. **To delete the cluster and revert any changes made to host machine:**
+7. **To delete the cluster and revert any changes made to host machine:**
 ```bash
 vagrant destroy -f
 ```
