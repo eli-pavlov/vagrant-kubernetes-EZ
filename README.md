@@ -151,11 +151,11 @@ IMPORTANT! "Host-Only" adapter's IP address should always match the addresses de
 
 File -> Tools -> Network Manager -> Create
 
-<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/9969d00d51aad79f0cb0e16c9638d101658fffc9/docs/adapter1a.JPG" width=450 /></br>
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/d1b8c9468f95080cac2df5eee298cf49dd341e3f/docs/adapter1a.JPG" width=450 /></br>
 
 
 Configure DHCP Server of "Host-Only" adapter:</br>
-<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/9969d00d51aad79f0cb0e16c9638d101658fffc9/docs/adapter1b.JPG" width=450 /></br>
+<img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/d1b8c9468f95080cac2df5eee298cf49dd341e3f/docs/adapter1b.JPG" width=450 /></br>
 
 
 Check NAT network adapter is present:</br>
