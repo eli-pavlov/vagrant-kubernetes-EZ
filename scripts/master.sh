@@ -53,5 +53,8 @@ else
     echo "Unknown pod network plugin specified in config file"
 fi
 echo "...done..."
+echo "##################################"
+echo "#   MASTER NODE SETUP COMPLETE   #"
+echo "##################################"
 echo ""
 echo ""
