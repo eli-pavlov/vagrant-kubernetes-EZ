@@ -59,7 +59,10 @@ $~$
 
 - [**Install VirtualBox**](https://www.virtualbox.org/wiki/Downloads) - and add a "Host-Only" Network Interface with ip 192.168.10.1
 
-- [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
+- [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant) and add vagrant to vboxusers group (on Linux only).
+```bash
+sudo chmod -aG vboxusers vagrant
+```
 
 - [**Install GIT**](https://git-scm.com/downloads)
 
@@ -158,9 +161,9 @@ Check NAT network adapter is present:</br>
 <img src= "https://github.com/eli-pavlov/vagrant-kubernetes-EZ/blob/c4c929065bdf0683f02b71d4a0b8678732035991/docs/adaper2a.JPG" width=450 /></br>
 
 
-3. **Install Vagrant**
+3. **[Install Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)** and add vagrant to vboxusers group (on Linux only).
 ```bash
-https://developer.hashicorp.com/vagrant/install?product_intent=vagrant
+sudo chmod -aG vboxusers vagrant
 ```
 4. **Install GIT**
 ```bash
