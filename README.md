@@ -98,7 +98,7 @@ or
 ```bash
 ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
 ```
-The location of the private key of the master node on the host machine is :</br> "<PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key"
+The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key
 
 7. **To delete the cluster and revert any changes made to host machine:**
 ```bash
@@ -204,7 +204,7 @@ or
 ```bash
 ssh vagrant@192.168.10.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
 ```
-The location of the private key of the master node on the host machine is :</br> "<PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key"</br>
+The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key</br>
 $~$
 
 7. **To delete the cluster and revert any changes made to host machine:**
