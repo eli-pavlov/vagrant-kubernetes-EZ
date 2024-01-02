@@ -61,7 +61,7 @@ $~$
 
 - [**Install Vagrant**](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)   - and add vagrant to vboxusers group (on Linux only).
 ```bash
-sudo chmod -aG vboxusers vagrant
+sudo usermod -aG vboxusers vagrant
 ```
 
 - [**Install GIT**](https://git-scm.com/downloads)
@@ -164,7 +164,7 @@ Check NAT network adapter is present:</br>
 
 3. **[Install Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)**   - and add vagrant to vboxusers group (on Linux only).
 ```bash
-sudo chmod -aG vboxusers vagrant
+sudo usermod -aG vboxusers vagrant
 ```
 4. **Install GIT**
 ```bash
