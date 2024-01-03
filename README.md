@@ -100,9 +100,9 @@ ssh vagrant@192.168.56.100 -i .vagrant/machines/master/virtualbox/private_key #L
 ```
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key
 
-7. **To Login directly from VirtualBos:**
-Username: "vagrant"
-password: "vagrant"
+7. **To Login directly from VirtualBox VM:**</br>
+Username: "vagrant"</br>
+password: "vagrant"</br>
 
 7. **To delete the cluster and revert any changes made to host machine:**
 ```bash
