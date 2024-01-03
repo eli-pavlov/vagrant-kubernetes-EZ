@@ -1,5 +1,5 @@
 #######################################################################
-#   This part loads config to enable dynamically generate scripts to be executed on VM's #
+#   This part loads config to enable dynamically generated scripts to be executed on VM's #
 #######################################################################
 # Explicitly require the YAML module
 require 'yaml'
