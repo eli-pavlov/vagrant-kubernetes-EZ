@@ -72,7 +72,7 @@ $~~$
 
 1. **Clone this repository:**
 ```bash
-git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+git clone https://github.com/eli-pavlov/vagrant-kubernetes-EZ.git
 ```
 2. **Enter the project directory:**
 ```bash
@@ -183,7 +183,7 @@ $~~~$
 
 1. **Clone this repository:**
 ```bash
-git clone https://github.com/eli-pavlov/kubernetes-vagrant-EZ.git
+git clone https://github.com/eli-pavlov/vagrant-kubernetes-EZ.git
 ```
 2. **Enter the project directory:**
 ```bash
