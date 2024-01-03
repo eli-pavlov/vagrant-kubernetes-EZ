@@ -103,7 +103,7 @@ The location of the private key of the master node on the host machine is : <PRO
 
 or
 
----> **Login directly from VirtualBox VM:** <---</br>
+---> **Login directly to VirtualBox VM:** <---</br>
 Username: "vagrant"</br>
 password: "vagrant"</br>
 
@@ -216,7 +216,7 @@ he location of the private key of the master node on the host machine is : <PROJ
 
 or
 
----> **Login directly from VirtualBox VM:** <---</br>
+---> **Login directly to VirtualBox VM:** <---</br>
 Username: "vagrant"</br>
 password: "vagrant"</br>
 
