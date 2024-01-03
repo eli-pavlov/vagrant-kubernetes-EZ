@@ -99,9 +99,9 @@ or
 ssh vagrant@192.168.56.100 -i .vagrant/machines/master/virtualbox/private_key #Login directly by providing vagrant generated private key.
 ```
 The location of the private key of the master node on the host machine is : <PROJECT_FOLDER>/.vagrant/machines/master/virtualbox/private_key</br>
-or
 
-$~$
+
+or
 
 -->**Login directly from VirtualBox VM:**<--</br>
 Username: "vagrant"</br>
