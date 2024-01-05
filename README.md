@@ -143,7 +143,7 @@ Verify there are at least 2 virtual network adapters defined in VirtualBox, "Hos
 And "NAT" adapter for access to the internet.</br>
 
 
-Configure "Host Only" Network adapter with ip adress of 192.168.56.1,</br>
+Configure the top=most "Host Only" Network adapter with ip adress of 192.168.56.1,</br>
 DHCP server address 192.168.56.2 and address boundaries from 192.168.56.3</br>
 to 192.168.56.254.</br>
 
