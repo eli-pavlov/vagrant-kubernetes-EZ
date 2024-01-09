@@ -18,15 +18,15 @@ echo "...done..."
 echo ""
 echo "[TASK 2] install time synchronization server"
 sudo apt update
-sudo apt-get install ntp
-sudo apt-get install ntpdate
+sudo apt-get install ntp -y
+sudo apt-get install ntpdate -y
 sudo ntpdate ntp.ubuntu.com
 echo "...done..."
 
 # Forwarding IPv4 and letting iptables see bridged traffic:
 echo ""
 echo "[TASK 3] Forwarding IPv4 and letting iptables see bridged traffic"
-cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+cat << EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
@@ -52,7 +52,7 @@ echo "...done..."
 echo ""
 echo "[TASK 5] Disable swap"
 sed -i '/swap/d' /etc/fstab
-swapoff -a
+sudo swapoff -a
 echo "...done..."
 
 # Add repository:
@@ -72,7 +72,7 @@ echo ""
 echo "[TASK 7] Install Containerd"
 
 sudo apt-get update
-sudo apt-get install containerd.io
+sudo apt-get install containerd.io -y
 
 # Install apt-transport-https pkg
 apt-get update && apt-get sudo apt-get install -y apt-transport-https ca-certificates curl gpg
