@@ -67,7 +67,6 @@ echo "...done..."
 echo ""
 echo "[TASK 7] Install Containerd"
 sudo apt-get update
-sudo apt-get install containerd.io -y
 sudo apt-get install containerd -y
 
 # Install apt-transport-https pkg
