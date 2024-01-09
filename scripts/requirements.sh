@@ -75,7 +75,7 @@ sudo apt-get update
 sudo apt-get install containerd.io -y
 
 # Install apt-transport-https pkg
-apt-get update && apt-get sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 # Configuring the systemd cgroup drive:
