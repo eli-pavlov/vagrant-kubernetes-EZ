@@ -89,12 +89,6 @@ sudo sed -i 's/            SystemdCgroup = false/            SystemdCgroup = tru
 
 sudo systemctl restart containerd
 
-# Update and install required packages on all the nodes:
-
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl
-echo "...done..."
-
 # Add Kubernetes repository:
 echo ""
 echo "[TASK 8] Install Kubernetes components"
