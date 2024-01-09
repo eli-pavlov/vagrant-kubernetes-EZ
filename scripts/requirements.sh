@@ -26,7 +26,7 @@ echo "...done..."
 # Forwarding IPv4 and letting iptables see bridged traffic:
 echo ""
 echo "[TASK 3] Forwarding IPv4 and letting iptables see bridged traffic"
-cat << EOF | sudo tee /etc/modules-load.d/k8s.conf
+sudo cat << EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
@@ -38,7 +38,7 @@ echo "...done..."
 # sysctl params required by setup, params persist across reboots
 echo ""
 echo "[TASK 4] sysctl params required by setup, params persist across reboots"
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+sudo cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
@@ -51,7 +51,7 @@ echo "...done..."
 # Disable swap
 echo ""
 echo "[TASK 5] Disable swap"
-sed -i '/swap/d' /etc/fstab
+sudo sed -i '/swap/d' /etc/fstab
 sudo swapoff -a
 echo "...done..."
 
