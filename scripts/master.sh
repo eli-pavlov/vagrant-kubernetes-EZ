@@ -38,6 +38,10 @@ if [ "$pod_network_plugin" == "Flannel" ]; then
 elif [ "$pod_network_plugin" == "Weave" ]; then
     echo "Installing Weave network plugin"
     su - vagrant -c "kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml"
+elif [ "$pod_network_plugin" == "Calico" ]; then
+    echo "Installing Calico network plugin"
+    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml"
+    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/custom-resources.yaml"
 elif [ "$pod_network_plugin" == "Cilium" ]; then
     echo "Installing Cilium networking plugin"
     CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)

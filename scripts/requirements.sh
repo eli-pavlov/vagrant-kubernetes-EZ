@@ -71,7 +71,7 @@ sudo apt-get install containerd -y
 
 # Install apt-transport-https pkg
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 # Configuring the systemd cgroup drive:
 # Creating a containerd configuration file by executing the following command
@@ -86,12 +86,12 @@ sudo systemctl restart containerd
 # Add Kubernetes repository:
 echo ""
 echo "[TASK 8] Install Kubernetes components"
-sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-sudo echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+sudo echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 # Update apt package index, install kubelet, kubeadm and kubectl, and pin their version:
 sudo apt-get update
-sudo apt-get install -y kubelet=1.26.1-1.1 kubectl=1.26.1-1.1 kubeadm=1.26.1-1.1
+sudo apt-get install -y kubelet=1.32.1-1.1 kubectl=1.32.1-1.1 kubeadm=1.32.1-1.1
 sudo apt-mark hold kubelet kubeadm kubectl
 echo "...done..."
 
