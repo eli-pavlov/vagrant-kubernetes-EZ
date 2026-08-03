@@ -32,12 +32,12 @@ Not a "minkube" or "light" Kubernetes - but a fully featured "Kubeadm" install d
 Vagrant doesn't just deploy the Kubernetes cluster - it provides, configures and manages all the underlaying infrastructure.
 Making possible to build and re-build whole systems in minutes. This makes simulation of complex environments on just one machine a breeze.
 
-This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/) and others, brings it up to date with latest OpenStack supported Kubernetes v.1.26, Ubuntu 22.04 LTS and expands with many additional options such as:
+This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://github.com/hfmartinez/kubernetes-vagrant), [Innablr/K8s_ubuntu](https://github.com/Innablr/k8s_ubuntu), [exxsyseng/k8s_ubuntu](https://bitbucket.org/exxsyseng/k8s_ubuntu/src/master/) and others, brings it up to date with Kubernetes v1.36, Ubuntu 22.04 LTS and expands with many additional options such as:
 
 - Define any number of Worker nodes.
 - Define any number of additional storage drives for Master/Worker nodes.
 - Fully customized IP addreses and CIDR's.
-- Choice of Kubernetes networking plugins: Flannel, Weave or Cillium [default].
+- Choice of Kubernetes networking plugins: Flannel, Weave, Calico [default] or Cilium.
 - Option to Enable/Distable nested virtualization for guest VM's.
 - Quality of life features like:</br>
    - Dynamic generation of guest VM's hosts file and hostnames.</br>

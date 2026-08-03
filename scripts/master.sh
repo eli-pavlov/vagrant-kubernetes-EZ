@@ -30,18 +30,19 @@ sudo chown kube:kube /home/kube/.kube/config
 echo "...done..."
 
 echo "[TASK 4] Install Pod Networking plugin"
-pod_network_plugin=$(cat /vagrant/config.yaml | grep "pod_network_plugin" | awk '{print $2}')
+pod_network_plugin=$(grep "pod_network_plugin" /vagrant/config.yaml | awk '{print $2}')
 echo "$pod_network_plugin Networking plugin selected"
 if [ "$pod_network_plugin" == "Flannel" ]; then
     echo "Installing Flannel network plugin"
      su - vagrant -c "kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml"
 elif [ "$pod_network_plugin" == "Weave" ]; then
+    # weaveworks/weave was archived in June 2024; v2.8.1 is the final release, kept for compatibility only.
     echo "Installing Weave network plugin"
     su - vagrant -c "kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml"
 elif [ "$pod_network_plugin" == "Calico" ]; then
     echo "Installing Calico network plugin"
-    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml"
-    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/custom-resources.yaml"
+    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.32.1/manifests/tigera-operator.yaml"
+    su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.32.1/manifests/custom-resources.yaml"
 elif [ "$pod_network_plugin" == "Cilium" ]; then
     echo "Installing Cilium networking plugin"
     CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
@@ -52,7 +53,7 @@ elif [ "$pod_network_plugin" == "Cilium" ]; then
     sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
     rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
     export KUBECONFIG=/home/vagrant/.kube/config
-    su - vagrant -c "cilium install --version 1.14.5"
+    su - vagrant -c "cilium install --version 1.20.0"
 else
     echo "Unknown pod network plugin specified in config file"
 fi
