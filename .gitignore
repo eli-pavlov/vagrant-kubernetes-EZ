@@ -1,4 +1,5 @@
 .vagrant
+*.tar.gz
 joincluster.sh
 kube_init_script.sh
 hosts
