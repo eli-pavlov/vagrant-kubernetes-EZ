@@ -42,6 +42,14 @@ elif [ "$pod_network_plugin" == "Weave" ]; then
 elif [ "$pod_network_plugin" == "Calico" ]; then
     echo "Installing Calico network plugin"
     su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.32.1/manifests/tigera-operator.yaml"
+    # The tigera-operator registers its own CRDs (Installation, APIServer, ...) on
+    # startup rather than shipping them in tigera-operator.yaml. Applying
+    # custom-resources.yaml immediately races the operator pod and fails with
+    # "no matches for kind ... ensure CRDs are installed first". Wait for the
+    # operator to be ready and its CRDs to be established before proceeding.
+    echo "Waiting for Tigera operator to be ready"
+    su - vagrant -c "kubectl -n tigera-operator wait --for=condition=Available --timeout=180s deployment/tigera-operator"
+    su - vagrant -c "kubectl wait --for=condition=Established --timeout=180s crd/installations.operator.tigera.io crd/apiservers.operator.tigera.io"
     su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.32.1/manifests/custom-resources.yaml"
 elif [ "$pod_network_plugin" == "Cilium" ]; then
     echo "Installing Cilium networking plugin"
