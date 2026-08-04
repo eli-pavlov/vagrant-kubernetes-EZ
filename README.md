@@ -55,7 +55,18 @@ $~$
 
 Notable updates made mid-lifecycle to keep the project current and the deployment reliable:
 
-#### 2026-08-04 — Deployment quality improvements
+#### 2026-08-04 — Deployment quality improvements (round 2)
+
+A from-scratch `vagrant destroy && vagrant up` still hit two silent failures despite round 1 below, tracked down to a wider pattern in `scripts/master.sh` / `scripts/worker.sh`: several steps redirected `stderr` to `/dev/null` and unconditionally printed `"...done..."` regardless of whether the preceding command actually succeeded, so `vagrant up` reported success while the cluster was actually broken.
+
+- `scripts/worker.sh`: the join step read `/vagrant/scripts/joincluster.sh` with `2>/dev/null` and no existence check. On a node where the `/vagrant` shared folder failed to mount (see the `vagrant-vbguest` note in [Prerequisites](#toolbox-getting-started)), that file simply wasn't there — the redirect swallowed the resulting error, `kubeadm join` never ran, and the script still printed `"...done..."`. The node stayed out of the cluster with no indication anything had gone wrong; only `kubectl get nodes` showing it missing gave it away. Now waits (up to 2.5 min) for the file to appear and `exit 1`s with a clear message if it never does or if `kubeadm join` itself fails.
+- `scripts/master.sh`: `kubeadm init`'s exit code was never checked, and the join-command generation (`kubeadm token create --print-join-command > /vagrant/scripts/joincluster.sh`) also redirected stderr to `/dev/null` with no check that the file actually got written. Both now fail the provisioner loudly instead of silently continuing.
+- `scripts/master.sh` Calico step: round 1's fix (see below) added a single `kubectl wait --for=condition=Established` call, but a rebuild still reproduced the original race — `kubectl create -f custom-resources.yaml` failed with `ensure CRDs are installed first` again, with no trace of the wait command's own output in the log, root cause undetermined. Replaced with a poll loop that confirms the CRDs exist before waiting on them, `exit 1`s if the operator/CRDs never come up, and retries the (now `apply` instead of `create`, so it's idempotent) custom-resources apply up to 6 times.
+- `Vagrantfile`: the generated `kube_init_script.sh` redirected `kubeadm init`'s stderr to `/dev/null` too, so even the newly-added exit-code check in `master.sh` had nothing to show for a failure. Now keeps stderr in `kubeinit.log` alongside stdout.
+- Recommended installing the `vagrant-vbguest` plugin (see [Prerequisites](#toolbox-getting-started)) to keep Guest Additions in sync with the host's VirtualBox version — the actual root cause of the shared-folder mount failure above, rather than just the error handling around it.
+- Bumped default `memory` for master and worker nodes in `config.yaml` from 2048MB to 6144MB. 2GB was tight enough for a full kubeadm control-plane (etcd + API server + scheduler + controller-manager + kubelet + containerd + Calico) that the master node became unresponsive to SSH under load during testing.
+
+#### 2026-08-04 — Deployment quality improvements (round 1)
 
 - Fixed a race condition in the Calico install step: the tigera-operator registers its own CRDs (`Installation`, `APIServer`, ...) on startup rather than shipping them in `tigera-operator.yaml`, so applying `custom-resources.yaml` immediately after could fail with `ensure CRDs are installed first`, leaving nodes stuck `NotReady` with no pod network. `scripts/master.sh` now waits for the operator deployment and its CRDs to be ready before applying custom resources.
 - Increased `Vagrantfile`'s `config.vm.boot_timeout` from 600s to 900s to give more headroom against transient host stalls (e.g. antivirus scanning VM disk files) during guest boot.
@@ -159,6 +170,12 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=450 />
 
 On Windows hosts, also add an exclusion for the VirtualBox VMs folder (default: `%USERPROFILE%\VirtualBox VMs`) in Windows Defender / your antivirus. Real-time scanning of VM disk files while a guest is booting is a common cause of a VM appearing to hang or timing out during `vagrant up`.
+
+Install the [`vagrant-vbguest`](https://github.com/dotless-de/vagrant-vbguest) plugin so the box's Guest Additions get kept in sync with your VirtualBox version:
+```bash
+vagrant plugin install vagrant-vbguest
+```
+The `ubuntu/jammy64` box ships an old Guest Additions build; if it drifts far enough behind your host's VirtualBox version, the `/vagrant` shared folder can fail to mount on a given node (silently, with no error at the point of failure) - which then makes that node's join-cluster step read a join script that was never delivered. `vagrant-vbguest` auto-updates Guest Additions on `vagrant up`/`reload`, which is the actual fix; the error handling described below is a safety net for if it's still not installed.
 
 2. **[Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
 

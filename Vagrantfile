@@ -16,7 +16,10 @@ Vagrant.configure(2) do |config|
   File.open(local_script_path, 'w') do |file|
     file.puts "#!/bin/bash"
     file.puts 'echo "[TASK 1] Initialize Kubernetes Cluster"'
-    file.puts "sudo kubeadm init --apiserver-advertise-address=#{config_data['master']['master_ip']} --pod-network-cidr=#{config_data['master']['pod_network_cidr']} >> kubeinit.log 2>/dev/null"
+    # Keep stderr in the log (not discarded) so a failed init leaves a
+    # diagnosable trail - master.sh tails this file if kubeadm init exits
+    # non-zero, but that's only useful if errors actually landed here.
+    file.puts "sudo kubeadm init --apiserver-advertise-address=#{config_data['master']['master_ip']} --pod-network-cidr=#{config_data['master']['pod_network_cidr']} >> kubeinit.log 2>&1"
   end
 
   # Transfer the dynamically generated script to guest VM

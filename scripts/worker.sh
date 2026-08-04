@@ -10,7 +10,34 @@ sleep 2
 echo ""
 echo ""
 echo "[TASK 1] Join node to Kubernetes Cluster"
-bash /vagrant/scripts/joincluster.sh 2>/dev/null
+
+# The /vagrant shared folder can take a few seconds to mount after boot, and
+# on a VirtualBox/Guest-Additions version mismatch (older GA baked into the
+# box vs. a newer VirtualBox host) it can fail to mount at all. That
+# previously caused this step to silently no-op - the join script simply
+# wasn't there to read - while still reporting "...done...", leaving the
+# node out of the cluster with no visible error. Wait for it to appear, and
+# fail the provisioner loudly if it never does or if the join itself fails.
+JOIN_SCRIPT="/vagrant/scripts/joincluster.sh"
+ATTEMPTS=0
+MAX_ATTEMPTS=30
+until [ -s "$JOIN_SCRIPT" ] || [ "$ATTEMPTS" -ge "$MAX_ATTEMPTS" ]; do
+    ATTEMPTS=$((ATTEMPTS + 1))
+    echo "Waiting for $JOIN_SCRIPT (shared folder mount / master provisioning)... attempt $ATTEMPTS/$MAX_ATTEMPTS"
+    sleep 5
+done
+
+if [ ! -s "$JOIN_SCRIPT" ]; then
+    echo "ERROR: $JOIN_SCRIPT never appeared." >&2
+    echo "Check that the /vagrant shared folder is mounted on this VM ('mount | grep vagrant')" >&2
+    echo "and that the master node finished provisioning successfully." >&2
+    exit 1
+fi
+
+if ! bash "$JOIN_SCRIPT"; then
+    echo "ERROR: kubeadm join failed - see output above." >&2
+    exit 1
+fi
 echo "...done..."
 echo ""
 echo "===================================="
