@@ -12,6 +12,7 @@ $~~$
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
+- [Changelog](#memo-changelog)
 - [TL;DR](#rocket-tldr)
 - [Prerequisites](#toolbox-getting-started)
 - [Installation](#gear-installation)
@@ -47,6 +48,30 @@ This release buids upon the work of - [hfmartinez/kubernetes-vagrant](https://gi
 $~~$
 
 This is not a PRODUCTION SETUP, it's aim is to simulate a full scale single machine/multi-node cluster for development and studies.
+
+$~$
+
+## :memo: Changelog
+
+Notable updates made mid-lifecycle to keep the project current and the deployment reliable:
+
+#### 2026-08-04 — Deployment quality improvements
+
+- Fixed a race condition in the Calico install step: the tigera-operator registers its own CRDs (`Installation`, `APIServer`, ...) on startup rather than shipping them in `tigera-operator.yaml`, so applying `custom-resources.yaml` immediately after could fail with `ensure CRDs are installed first`, leaving nodes stuck `NotReady` with no pod network. `scripts/master.sh` now waits for the operator deployment and its CRDs to be ready before applying custom resources.
+- Increased `Vagrantfile`'s `config.vm.boot_timeout` from 600s to 900s to give more headroom against transient host stalls (e.g. antivirus scanning VM disk files) during guest boot.
+- Documented excluding the VirtualBox VMs folder from Windows Defender/antivirus scanning (see [Prerequisites](#toolbox-getting-started)) — the most common cause of a guest appearing to hang mid-boot on Windows hosts.
+
+#### 2026-08-03 — Version bump
+
+- Kubernetes: v1.32.1 → **v1.36.3**
+- Calico: v3.27.0 → **v3.32.1**, and promoted to the **default** pod network plugin
+- Cilium CLI: v1.14.5 → **v1.20.0**
+- Weave: upstream project archived (June 2024); kept in `master.sh` only for backward compatibility and no longer recommended
+- Minor script robustness fixes (host file copy, removed a duplicate Kubernetes signing-key download)
+
+#### 2025-09 — Calico networking added
+
+- Added Calico as a selectable (and eventually default) pod network plugin alongside Flannel, Weave and Cilium.
 
 $~$
 
@@ -240,7 +265,7 @@ $~$
   - Script to install required packages on all VM's.
   </ul> </details>
     <details> <summary>master.sh:</summary> <ul>
-  -  Script to Install Master node specific packages and initialize the Kubernetes cluster.
+  -  Script to Install Master node specific packages, initialize the Kubernetes cluster and install the selected pod network plugin (waiting for the CNI operator's CRDs to be ready first, where applicable).
   </ul> </details>
     <details> <summary>worker.sh:</summary> <ul>
   - Script to join worker nodes to the cluster.
