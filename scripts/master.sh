@@ -46,11 +46,17 @@ pod_network_plugin=$(grep "pod_network_plugin" /vagrant/config.yaml | awk '{prin
 echo "$pod_network_plugin Networking plugin selected"
 if [ "$pod_network_plugin" == "Flannel" ]; then
     echo "Installing Flannel network plugin"
-     su - vagrant -c "kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml"
+    if ! su - vagrant -c "kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml"; then
+        echo "ERROR: failed to apply Flannel manifest" >&2
+        exit 1
+    fi
 elif [ "$pod_network_plugin" == "Weave" ]; then
     # weaveworks/weave was archived in June 2024; v2.8.1 is the final release, kept for compatibility only.
     echo "Installing Weave network plugin"
-    su - vagrant -c "kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml"
+    if ! su - vagrant -c "kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml"; then
+        echo "ERROR: failed to apply Weave manifest" >&2
+        exit 1
+    fi
 elif [ "$pod_network_plugin" == "Calico" ]; then
     echo "Installing Calico network plugin"
     su - vagrant -c "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.32.1/manifests/tigera-operator.yaml"
@@ -95,14 +101,30 @@ elif [ "$pod_network_plugin" == "Calico" ]; then
 elif [ "$pod_network_plugin" == "Cilium" ]; then
     echo "Installing Cilium networking plugin"
     CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
+    if [ -z "$CILIUM_CLI_VERSION" ]; then
+        echo "ERROR: failed to resolve latest Cilium CLI version" >&2
+        exit 1
+    fi
     CLI_ARCH=amd64
     if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
-    curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
-    sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
-    sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
+    if ! curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}; then
+        echo "ERROR: failed to download Cilium CLI" >&2
+        exit 1
+    fi
+    if ! sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum; then
+        echo "ERROR: Cilium CLI checksum verification failed" >&2
+        exit 1
+    fi
+    if ! sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin; then
+        echo "ERROR: failed to extract Cilium CLI" >&2
+        exit 1
+    fi
     rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
     export KUBECONFIG=/home/vagrant/.kube/config
-    su - vagrant -c "cilium install --version 1.20.0"
+    if ! su - vagrant -c "cilium install --version 1.20.0"; then
+        echo "ERROR: cilium install failed" >&2
+        exit 1
+    fi
 else
     echo "Unknown pod network plugin specified in config file"
 fi

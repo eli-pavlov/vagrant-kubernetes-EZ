@@ -1,4 +1,10 @@
 #!/bin/bash
+# Make `cmdA | cmdB` report failure if cmdA fails, not just cmdB - several
+# steps below pipe a curl/containerd/etc. into gpg/tee, and a broken
+# upstream fetch shouldn't be able to hide behind a downstream command that
+# still exits 0.
+set -o pipefail
+
 echo ""
 echo "##################################"
 echo "# RUNNING requirements.sh script #"
@@ -17,7 +23,10 @@ echo "[TASK 2] install time synchronization server"
 sudo apt update
 sudo apt-get install ntp -y
 sudo apt-get install ntpdate -y
-sudo ntpdate ntp.ubuntu.com
+# Best-effort: the ntp package/daemon installed above already keeps time in
+# sync, and this one-shot sync commonly fails with "port in use" if ntpd
+# grabbed port 123 first. Not worth failing provisioning over.
+sudo ntpdate ntp.ubuntu.com || echo "WARNING: ntpdate one-shot sync failed (non-fatal, ntp daemon is already running)"
 echo "...done..."
 
 # Forwarding IPv4 and letting iptables see bridged traffic:
@@ -55,7 +64,10 @@ echo "...done..."
 echo ""
 echo "[TASK 6] Add repository"
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+if ! curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg; then
+    echo "ERROR: failed to fetch/install the Docker apt signing key" >&2
+    exit 1
+fi
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo \
  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
@@ -67,10 +79,16 @@ echo "...done..."
 echo ""
 echo "[TASK 7] Install Containerd"
 sudo apt-get update
-sudo apt-get install containerd -y
+if ! sudo apt-get install containerd -y; then
+    echo "ERROR: failed to install containerd" >&2
+    exit 1
+fi
 
 # Install apt-transport-https pkg
-sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+if ! { sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg; }; then
+    echo "ERROR: failed to install apt-transport-https/ca-certificates/curl/gpg" >&2
+    exit 1
+fi
 
 # Configuring the systemd cgroup drive:
 # Creating a containerd configuration file by executing the following command
@@ -85,12 +103,18 @@ sudo systemctl restart containerd
 # Add Kubernetes repository:
 echo ""
 echo "[TASK 8] Install Kubernetes components"
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.36/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+if ! curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.36/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg; then
+    echo "ERROR: failed to fetch/install the Kubernetes apt signing key" >&2
+    exit 1
+fi
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.36/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 # Update apt package index, install kubelet, kubeadm and kubectl, and pin their version:
 sudo apt-get update
-sudo apt-get install -y kubelet=1.36.3-1.1 kubectl=1.36.3-1.1 kubeadm=1.36.3-1.1
+if ! sudo apt-get install -y kubelet=1.36.3-1.1 kubectl=1.36.3-1.1 kubeadm=1.36.3-1.1; then
+    echo "ERROR: failed to install kubelet/kubectl/kubeadm 1.36.3-1.1 - check the pinned version is still available in the repo" >&2
+    exit 1
+fi
 sudo apt-mark hold kubelet kubeadm kubectl
 echo "...done..."
 

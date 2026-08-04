@@ -4,6 +4,26 @@
 # Explicitly require the YAML module
 require 'yaml'
 
+#######################################################################
+##   Ensure vagrant-vbguest is present before any VM is touched      ##
+#######################################################################
+# The ubuntu/jammy64 box ships an old Guest Additions build. Left unmanaged,
+# a Guest Additions/VirtualBox version mismatch can make the /vagrant shared
+# folder silently fail to mount on a given node, which then starves that
+# node's provisioning scripts of files they expect to be there (e.g. the
+# join-cluster script). vagrant-vbguest keeps Guest Additions in sync
+# automatically, so require it rather than just documenting it.
+required_plugins = %w(vagrant-vbguest)
+required_plugins.each do |plugin|
+  unless Vagrant.has_plugin?(plugin)
+    puts "Installing missing plugin: #{plugin}"
+    unless system("vagrant plugin install #{plugin}")
+      abort "Failed to install required plugin '#{plugin}'. Install it manually with: vagrant plugin install #{plugin}"
+    end
+    exec "vagrant #{ARGV.join(' ')}"
+  end
+end
+
 Vagrant.configure(2) do |config|
   # Load the configuration data from the YAML file
   config_data = YAML.load_file('config.yaml')

@@ -55,6 +55,14 @@ $~$
 
 Notable updates made mid-lifecycle to keep the project current and the deployment reliable:
 
+#### 2026-08-04 — Deployment quality improvements (round 3)
+
+Round 2 below still left two gaps: the `vagrant-vbguest` fix was documented but not enforced, and the "stop swallowing failures" treatment only covered the Calico path.
+
+- `Vagrantfile`: now checks for the `vagrant-vbguest` plugin before touching any VM and installs it automatically (re-running the `vagrant` command afterwards) if missing, instead of just recommending a manual install step a user could skip.
+- `scripts/master.sh`: the Flannel, Weave and Cilium branches (CLI download, checksum verification, extraction, and the `cilium install`/`kubectl apply` calls) now check exit codes and `exit 1` with a clear message on failure, matching the Calico branch instead of being the last unchecked paths.
+- `scripts/requirements.sh`: added `set -o pipefail` plus exit-code checks around the genuinely load-bearing steps - the Docker and Kubernetes apt signing-key fetches, `containerd` install, and the pinned `kubelet`/`kubectl`/`kubeadm` install - so a failed package/key fetch stops provisioning instead of silently leaving a broken node. The one-shot `ntpdate` call is left as an explicit best-effort step (it commonly fails with "port in use" against the `ntp` daemon already running) rather than failing the whole run over a non-critical time sync.
+
 #### 2026-08-04 — Deployment quality improvements (round 2)
 
 A from-scratch `vagrant destroy && vagrant up` still hit two silent failures despite round 1 below, tracked down to a wider pattern in `scripts/master.sh` / `scripts/worker.sh`: several steps redirected `stderr` to `/dev/null` and unconditionally printed `"...done..."` regardless of whether the preceding command actually succeeded, so `vagrant up` reported success while the cluster was actually broken.
@@ -171,11 +179,7 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 
 On Windows hosts, also add an exclusion for the VirtualBox VMs folder (default: `%USERPROFILE%\VirtualBox VMs`) in Windows Defender / your antivirus. Real-time scanning of VM disk files while a guest is booting is a common cause of a VM appearing to hang or timing out during `vagrant up`.
 
-Install the [`vagrant-vbguest`](https://github.com/dotless-de/vagrant-vbguest) plugin so the box's Guest Additions get kept in sync with your VirtualBox version:
-```bash
-vagrant plugin install vagrant-vbguest
-```
-The `ubuntu/jammy64` box ships an old Guest Additions build; if it drifts far enough behind your host's VirtualBox version, the `/vagrant` shared folder can fail to mount on a given node (silently, with no error at the point of failure) - which then makes that node's join-cluster step read a join script that was never delivered. `vagrant-vbguest` auto-updates Guest Additions on `vagrant up`/`reload`, which is the actual fix; the error handling described below is a safety net for if it's still not installed.
+The `ubuntu/jammy64` box ships an old Guest Additions build; if it drifts far enough behind your host's VirtualBox version, the `/vagrant` shared folder can fail to mount on a given node (silently, with no error at the point of failure) - which then makes that node's join-cluster step read a join script that was never delivered. The [`vagrant-vbguest`](https://github.com/dotless-de/vagrant-vbguest) plugin auto-updates Guest Additions on `vagrant up`/`reload`, which is the actual fix, so the `Vagrantfile` now checks for it and runs `vagrant plugin install vagrant-vbguest` on your behalf (re-running your `vagrant` command afterwards) if it's missing - no manual step needed. The error handling described below is a safety net for the rare case a shared-folder mount still fails.
 
 2. **[Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
 
