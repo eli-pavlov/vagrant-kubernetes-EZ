@@ -133,6 +133,8 @@ It is also a good practice to disable Windows HyperV when using VirtualBox:
 
 <img src= "https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/docs/HyperV.png" width=450 />
 
+On Windows hosts, also add an exclusion for the VirtualBox VMs folder (default: `%USERPROFILE%\VirtualBox VMs`) in Windows Defender / your antivirus. Real-time scanning of VM disk files while a guest is booting is a common cause of a VM appearing to hang or timing out during `vagrant up`.
+
 2. **[Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
 
 

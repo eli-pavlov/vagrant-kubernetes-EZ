@@ -57,7 +57,10 @@ Vagrant.configure(2) do |config|
 #######################################################################
 
   # Define the amount of time given to the machine to complete reboot
-  config.vm.boot_timeout = 600 # Set the boot timeout to 10 minutes
+  # Machines are brought up one at a time (not in parallel). 900s gives extra
+  # headroom for transient host contention (antivirus scanning VM disk files,
+  # unrelated host load, etc.) that can stall a guest mid-boot.
+  config.vm.boot_timeout = 900 # Set the boot timeout to 15 minutes
 
   # Execute on each new machine the requirements.sh script
   config.vm.provision "shell", path: "./scripts/requirements.sh", args: config_data['NodeCount']
