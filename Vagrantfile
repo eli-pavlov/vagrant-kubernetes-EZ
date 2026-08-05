@@ -33,7 +33,13 @@ Vagrant.configure(2) do |config|
 #######################################################################
 
   local_script_path = "./scripts/kube_init_script.sh"
-  File.open(local_script_path, 'w') do |file|
+  # 'wb' (binary), not 'w': on a Windows host, Ruby's default text-mode file
+  # writing translates \n to \r\n. This script is executed by bash on the
+  # Linux guest after being copied over -- CRLF line endings there produce
+  # "ambiguous redirect" on the ">> kubeinit.log 2>&1" line (bash sees the
+  # trailing \r as part of the redirect target). Verified via hex dump
+  # (0d0a at each line end) after a real failure, not assumed.
+  File.open(local_script_path, 'wb') do |file|
     file.puts "#!/bin/bash"
     file.puts 'echo "[TASK 1] Initialize Kubernetes Cluster"'
     # Keep stderr in the log (not discarded) so a failed init leaves a
@@ -51,7 +57,12 @@ Vagrant.configure(2) do |config|
 
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
-  File.open(local_hosts_path, 'w') do |file|
+  # 'wb', same reason as kube_init_script.sh above -- avoid CRLF from
+  # Windows-host text-mode writing leaking into a file consumed by Linux
+  # guests. Less immediately fatal than the shell script (glibc's /etc/hosts
+  # parser tolerates trailing \r better than bash does), but the same class
+  # of bug, fixed the same way rather than left inconsistent.
+  File.open(local_hosts_path, 'wb') do |file|
     file.puts "127.0.0.1 localhost"
 
     # Add master entry
@@ -108,7 +119,7 @@ Vagrant.configure(2) do |config|
           config_data['master']['additional_storage_drives'].to_i < 10
         Master_drives = (1..config_data['master']['additional_storage_drives']).to_a
         Master_drives.each do |hd|
-          v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
+          v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['master']['storage_drives_size'] * 1024]
           v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd + 1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/master_disk#{hd}.vdi"]
         end
       end
