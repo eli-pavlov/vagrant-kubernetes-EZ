@@ -33,7 +33,15 @@ Vagrant.configure(2) do |config|
 #######################################################################
 
   local_script_path = "./scripts/kube_init_script.sh"
-  File.open(local_script_path, 'w') do |file|
+  # Binary mode ('wb', not 'w') is required on Windows hosts: Ruby's default
+  # text-mode File.open translates \n -> \r\n, which silently reintroduces
+  # CRLF into this generated shell script on every `vagrant up`, breaking
+  # kubeadm init with "line 3: 1: ambiguous redirect" (the \r before the
+  # final redirect confuses the guest's shell). Found 2026-08-05 after the
+  # bug reappeared on every single retry despite manually stripping \r each
+  # time -- the manual fix never stuck because this block regenerates the
+  # file from scratch on every run, unconditionally.
+  File.open(local_script_path, 'wb') do |file|
     file.puts "#!/bin/bash"
     file.puts 'echo "[TASK 1] Initialize Kubernetes Cluster"'
     # Keep stderr in the log (not discarded) so a failed init leaves a
@@ -51,7 +59,9 @@ Vagrant.configure(2) do |config|
 
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
-  File.open(local_hosts_path, 'w') do |file|
+  # Binary mode for the same reason as kube_init_script.sh above -- avoid
+  # Windows-host CRLF injection into a file consumed by Linux guests.
+  File.open(local_hosts_path, 'wb') do |file|
     file.puts "127.0.0.1 localhost"
 
     # Add master entry

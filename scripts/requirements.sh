@@ -64,7 +64,7 @@ echo "...done..."
 echo ""
 echo "[TASK 6] Add repository"
 sudo install -m 0755 -d /etc/apt/keyrings
-if ! curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg; then
+if ! curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null; then
     echo "ERROR: failed to fetch/install the Docker apt signing key" >&2
     exit 1
 fi
@@ -103,7 +103,7 @@ sudo systemctl restart containerd
 # Add Kubernetes repository:
 echo ""
 echo "[TASK 8] Install Kubernetes components"
-if ! curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.36/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg; then
+if ! curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.36/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/kubernetes-apt-keyring.gpg > /dev/null; then
     echo "ERROR: failed to fetch/install the Kubernetes apt signing key" >&2
     exit 1
 fi

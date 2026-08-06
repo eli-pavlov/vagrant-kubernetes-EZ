@@ -2,6 +2,17 @@
   #///        Define cluster configuration in this file              ///#
   #######################################################################
 
+  # Total footprint at current sizing (2026-08-06): 3 nodes (1 master + 2
+  # workers) x 4 cpus / 8192 MB = 12 vCPU / 24 GB requested from the host.
+  # Host measured at the time of this change: 8 physical cores / 16
+  # logical processors, ~48 GB RAM. 12 vCPU against 8 physical cores is
+  # real oversubscription (fine for VirtualBox as long as VMs aren't all
+  # CPU-bound simultaneously -- which is closer to what happened before
+  # this bump, at 6 vCPU / 8 cores). 24 GB against ~48 GB leaves headroom
+  # for the host OS and everything else running on it. Revisit if this
+  # host's own spec changes, or if oversubscription becomes a problem
+  # again even at this higher allocation.
+
   # How many worker nodes to deploy in addition to the master node
 NodeCount: 2
 
@@ -9,8 +20,15 @@ master:
   #######################################################################
   # Set the IP, amount of RAM memory, CPU cores and storage drives for master node
   #######################################################################
-  memory: 6144
-  cpus: 2
+  # Bumped 2026-08-06 from 6144/2 to 8192/4: the master node's guest OS
+  # became unresponsive (SSH and the Kubernetes API both hard-timed-out;
+  # VirtualBox still showed it "running") after several hours of sustained
+  # testing load (a load-average reading during the same session briefly
+  # hit 69 on a 2-vCPU node). A `vagrant reload master` did not recover
+  # it. Full incident: the-seventh-gate/docs/reference/session-log.md,
+  # 2026-08-06 entries.
+  memory: 8192
+  cpus: 4
   master_ip: "172.16.16.100"            # ip of the master node guest VM machine
   additional_storage_drives: 0           # How many additional storage drives the machine should have
   storage_drives_size: 5               # What is the size of each additional storage drive in GB
@@ -25,10 +43,14 @@ master:
 
 worker:
   #######################################################################
-  # Set the amount of RAM memory, CPU cores and storage drives for each worker node 
+  # Set the amount of RAM memory, CPU cores and storage drives for each worker node
   #######################################################################
-  memory: 6144
-  cpus: 2
+  # Bumped 2026-08-06 alongside master, same reasoning -- see master's
+  # comment above. Applied uniformly rather than master-only since
+  # worker2 separately hit its own resource/guest-additions issues in the
+  # same session (unrelated root cause, but worth the same headroom).
+  memory: 8192
+  cpus: 4
   additional_storage_drives: 0            # How many additional storage drives the machine should have
   storage_drives_size: 5                 # What is the size of each additional storage drive in GB
   worker_virt: False                      # Enable/Disable nested virtualization on worker nodes
