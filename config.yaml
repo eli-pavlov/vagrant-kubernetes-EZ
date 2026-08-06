@@ -61,4 +61,3 @@ worker:
   #######################################################################
   ip_prefix: "172.16.16."                 # ip prefix for worker nodes
   start_index: 101                         # starting ip address - e.x. 192.168.10.101
-  count: <%= @NodeCount %>                 # do not change this line

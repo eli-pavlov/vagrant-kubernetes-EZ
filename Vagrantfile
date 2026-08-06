@@ -36,11 +36,13 @@ Vagrant.configure(2) do |config|
   # Binary mode ('wb', not 'w') is required on Windows hosts: Ruby's default
   # text-mode File.open translates \n -> \r\n, which silently reintroduces
   # CRLF into this generated shell script on every `vagrant up`, breaking
-  # kubeadm init with "line 3: 1: ambiguous redirect" (the \r before the
-  # final redirect confuses the guest's shell). Found 2026-08-05 after the
-  # bug reappeared on every single retry despite manually stripping \r each
-  # time -- the manual fix never stuck because this block regenerates the
-  # file from scratch on every run, unconditionally.
+  # kubeadm init with "line 3: 1: ambiguous redirect" (bash sees the
+  # trailing \r before ">> kubeinit.log 2>&1" as part of the redirect
+  # target). Found 2026-08-05 after the bug reappeared on every single
+  # retry despite manually stripping \r each time -- the manual fix never
+  # stuck because this block regenerates the file from scratch on every
+  # run, unconditionally. Verified via hex dump (0d0a at each line end)
+  # after a real failure, not assumed.
   File.open(local_script_path, 'wb') do |file|
     file.puts "#!/bin/bash"
     file.puts 'echo "[TASK 1] Initialize Kubernetes Cluster"'
@@ -59,8 +61,11 @@ Vagrant.configure(2) do |config|
 
   local_hosts_path = "./scripts/hosts"
   # Update the hosts file with configured IP addresses
-  # Binary mode for the same reason as kube_init_script.sh above -- avoid
-  # Windows-host CRLF injection into a file consumed by Linux guests.
+  # 'wb', same reason as kube_init_script.sh above -- avoid CRLF from
+  # Windows-host text-mode writing leaking into a file consumed by Linux
+  # guests. Less immediately fatal than the shell script (glibc's /etc/hosts
+  # parser tolerates trailing \r better than bash does), but the same class
+  # of bug, fixed the same way rather than left inconsistent.
   File.open(local_hosts_path, 'wb') do |file|
     file.puts "127.0.0.1 localhost"
 
@@ -118,7 +123,7 @@ Vagrant.configure(2) do |config|
           config_data['master']['additional_storage_drives'].to_i < 10
         Master_drives = (1..config_data['master']['additional_storage_drives']).to_a
         Master_drives.each do |hd|
-          v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['worker']['storage_drives_size'] * 1024]
+          v.customize ['createhd', '--filename', "./volumes/master_disk#{hd}.vdi", '--variant', 'Standard', '--size', config_data['master']['storage_drives_size'] * 1024]
           v.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', hd + 1, '--device', 0, '--type', 'hdd', '--medium', "./volumes/master_disk#{hd}.vdi"]
         end
       end
