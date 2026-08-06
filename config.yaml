@@ -2,16 +2,24 @@
   #///        Define cluster configuration in this file              ///#
   #######################################################################
 
-  # Total footprint at current sizing (2026-08-06): 3 nodes (1 master + 2
-  # workers) x 4 cpus / 8192 MB = 12 vCPU / 24 GB requested from the host.
-  # Host measured at the time of this change: 8 physical cores / 16
-  # logical processors, ~48 GB RAM. 12 vCPU against 8 physical cores is
-  # real oversubscription (fine for VirtualBox as long as VMs aren't all
-  # CPU-bound simultaneously -- which is closer to what happened before
-  # this bump, at 6 vCPU / 8 cores). 24 GB against ~48 GB leaves headroom
-  # for the host OS and everything else running on it. Revisit if this
-  # host's own spec changes, or if oversubscription becomes a problem
-  # again even at this higher allocation.
+  # Total footprint at current sizing (2026-08-06, second bump): 3 nodes
+  # (1 master + 2 workers) x 4 cpus / 12288 MB = 12 vCPU / 36 GB requested
+  # from the host. Host measured at the time of the first bump: 8
+  # physical cores / 16 logical processors, ~48 GB RAM. CPU left
+  # unchanged from the first bump -- today's real failures were memory-
+  # bound, not CPU-bound: TimescaleDB alone needed a 4096Mi container
+  # limit just to survive a real bulk data load + aggregation query
+  # (2 separate OOM kills at 1536Mi and 2560Mi before that held), and the
+  # openclaw-council agent pod separately runs up to a 4Gi limit -- both
+  # landing on the SAME worker node in the 2-node fallback topology this
+  # cluster kept degrading to, on top of Redis/PgBouncer/K8s system
+  # overhead. 36 GB against ~48 GB host RAM leaves less headroom than the
+  # first bump did (12 GB free at 3-node vs 24 GB before) -- worth
+  # watching, and worth reducing NodeCount to 1 (2-node total) instead of
+  # raising this further if host memory pressure becomes a real problem,
+  # rather than continuing to raise per-node RAM indefinitely. Full
+  # incident history: the-seventh-gate/docs/reference/session-log.md,
+  # 2026-08-06 entries.
 
   # How many worker nodes to deploy in addition to the master node
 NodeCount: 2
@@ -27,7 +35,7 @@ master:
   # hit 69 on a 2-vCPU node). A `vagrant reload master` did not recover
   # it. Full incident: the-seventh-gate/docs/reference/session-log.md,
   # 2026-08-06 entries.
-  memory: 8192
+  memory: 12288
   cpus: 4
   master_ip: "172.16.16.100"            # ip of the master node guest VM machine
   additional_storage_drives: 0           # How many additional storage drives the machine should have
@@ -49,7 +57,7 @@ worker:
   # comment above. Applied uniformly rather than master-only since
   # worker2 separately hit its own resource/guest-additions issues in the
   # same session (unrelated root cause, but worth the same headroom).
-  memory: 8192
+  memory: 12288
   cpus: 4
   additional_storage_drives: 0            # How many additional storage drives the machine should have
   storage_drives_size: 5                 # What is the size of each additional storage drive in GB
